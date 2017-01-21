@@ -1,14 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_anime
   before_action :authenticate_user!
-  def index
-    @reviews = Review.all
-  end
 
-  def show
-  end
-
-  # GET /reviews/new
   def new
     @review = Review.new
   end
@@ -19,39 +13,31 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
+    @review.anime_id = @anime.id
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
-      else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+    if @review.save
+      redirect_to @anime
+    else
+      render 'new'
     end
   end
 
   def update
-    respond_to do |format|
-      if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
-        format.json { render :show, status: :ok, location: @review }
-      else
-        format.html { render :edit }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
-    end
+   @review.update(review_params)
   end
 
   def destroy
     @review.destroy
     redirect_to root_path
-    
   end
 
   private
     def set_review
       @review = Review.find(params[:id])
+    end
+
+    def set_anime
+      @anime = Anime.find(params[:anime_id])
     end
 
     def review_params

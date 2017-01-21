@@ -3,6 +3,8 @@
     <div class="row">
       <div class="col-md-4">
       <%= image_tag @anime.image.url(:medium) %>
+      <div class="star-rating" data-score= <%= @avg_review %> ></div>
+      <em><%="#{@reviews.length} reviews" %></em>
         <div class="table-responsible">
           <table class="table">
             <tbody>
@@ -86,7 +88,25 @@
 
             </tbody> 
           </table>
+          <%= link_to "Escribe una opinión", new_anime_review_path(@anime) %>
         </div>
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @anime.title %></h1>
+        <p><%= @anime.description %></p>
+
+        <% if @reviews.blank? %>
+        <h3>Sin criticas hasta ahora, te gustaria ser el primero en opinar?</h3>
+        <%= link_to "Escribe tu opinión", new_anime_review_path(@anime), class: "btn btn-danger" %>
+        <%else%>
+        <% @reviews.each do |review| %>
+        <div class="reviews">
+          <div class="star-rating" data-score= <%= review.rating %>> </div>
+          <p><%= review.comment %></p>
+        </div>
+      
+        <%end%>
+        <%end%>
       </div>
     </div>
   </div>
@@ -97,3 +117,13 @@
 
 <%= link_to 'Edit', edit_anime_path(@anime) %> |
 <%= link_to 'Back', animes_path %>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    }
+  });
+</script>
