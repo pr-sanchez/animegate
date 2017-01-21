@@ -1,0 +1,2 @@
+json.extract! anime, :id, :title, :description, :anime_size, :studio, :rating, :fansub, :language, :subtitles, :ovas, :resolution, :file_format, :anime_episodes, :server, :uploader, :year, :genre, :created_at, :updated_at
+json.url anime_url(anime, format: :json)

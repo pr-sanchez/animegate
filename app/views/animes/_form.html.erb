@@ -1,0 +1,81 @@
+<%= form_for(@anime) do |f| %>
+  <% if @anime.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@anime.errors.count, "error") %> prohibited this anime from being saved:</h2>
+
+      <ul>
+      <% @anime.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :anime_size %><br>
+    <%= f.text_field :anime_size %>
+  </div>
+  <div class="field">
+    <%= f.label :studio %><br>
+    <%= f.text_field :studio %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.text_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :fansub %><br>
+    <%= f.text_field :fansub %>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br>
+    <%= f.text_field :language %>
+  </div>
+  <div class="field">
+    <%= f.label :subtitles %><br>
+    <%= f.text_field :subtitles %>
+  </div>
+  <div class="field">
+    <%= f.label :ovas %><br>
+    <%= f.text_field :ovas %>
+  </div>
+  <div class="field">
+    <%= f.label :resolution %><br>
+    <%= f.text_field :resolution %>
+  </div>
+  <div class="field">
+    <%= f.label :file_format %><br>
+    <%= f.text_field :file_format %>
+  </div>
+  <div class="field">
+    <%= f.label :anime_episodes %><br>
+    <%= f.text_field :anime_episodes %>
+  </div>
+  <div class="field">
+    <%= f.label :server %><br>
+    <%= f.text_field :server %>
+  </div>
+  <div class="field">
+    <%= f.label :uploader %><br>
+    <%= f.text_field :uploader %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.text_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :genre %><br>
+    <%= f.text_field :genre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
