@@ -1,58 +1,18 @@
-<p id="notice"><%= notice %></p>
+<% if !user_signed_in? %>
+<div class="jumbotron">
+  <h1>Tu pagina de reseñas de Anime favorita.</h1>
+  <p>texto aqui</p>
+  <p><%= link_to "Registrate para escribir una reseña", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  
+</div>
+<%end%>
 
-<h1>Listing Animes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Anime size</th>
-      <th>Studio</th>
-      <th>Rating</th>
-      <th>Fansub</th>
-      <th>Language</th>
-      <th>Subtitles</th>
-      <th>Ovas</th>
-      <th>Resolution</th>
-      <th>File format</th>
-      <th>Anime episodes</th>
-      <th>Server</th>
-      <th>Uploader</th>
-      <th>Year</th>
-      <th>Genre</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @animes.each do |anime| %>
-      <tr>
-        <td><%= image_tag anime.image.url(:medium) %></td>
-        <td><%= anime.title %></td>
-        <td><%= anime.description %></td>
-        <td><%= anime.anime_size %></td>
-        <td><%= anime.studio %></td>
-        <td><%= anime.rating %></td>
-        <td><%= anime.fansub %></td>
-        <td><%= anime.language %></td>
-        <td><%= anime.subtitles %></td>
-        <td><%= anime.ovas %></td>
-        <td><%= anime.resolution %></td>
-        <td><%= anime.file_format %></td>
-        <td><%= anime.anime_episodes %></td>
-        <td><%= anime.server %></td>
-        <td><%= anime.uploader %></td>
-        <td><%= anime.year %></td>
-        <td><%= anime.genre %></td>
-        <td><%= link_to 'Show', anime %></td>
-        <td><%= link_to 'Edit', edit_anime_path(anime) %></td>
-        <td><%= link_to 'Destroy', anime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Anime', new_anime_path %>
+<div class="row">
+  <% @animes.each do |anime| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <%= link_to (image_tag anime.image.url(:medium), class: 'image'), anime %>
+    </div>
+  </div>
+  <% end %>
+</div>
