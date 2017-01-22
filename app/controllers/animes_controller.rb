@@ -16,7 +16,6 @@ class AnimesController < ApplicationController
 
   def show
     @reviews = Review.where(anime_id: @anime.id).order("created_at DESC")
-    
     if @reviews.blank?
       @avg_review = 0
     else

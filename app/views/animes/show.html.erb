@@ -103,21 +103,23 @@
         <div class="reviews">
           <div class="star-rating" data-score= <%= review.rating %>> </div>
           <p><%= review.comment %></p>
+      
         </div>
         <%end%>
         <%end%>
       </div>
     </div>
   </div>
+  <% if current_user.try(:admin?) %>
+<%= link_to 'Atras', animes_path, class: "btn btn-info" %> |
+<%= link_to 'Editar', edit_anime_path(@anime), class: "btn btn-success" %> |
+<%= link_to 'Borrar', @anime, method: :delete, class: "btn btn-danger", data: {confirm: '¿Estas seguro que quieres borrar este anime?'} %>
+<%end%>
+
 </div>
 
 
-<% if current_user.try(:admin?) %>
 
-<%= link_to 'Editar', edit_anime_path(@anime) %> |
-<%= link_to 'Atras', animes_path %> |
-<%= link_to 'Borrar', @anime, method: :delete, data: {confirm: '¿Estas seguro que quieres borrar este anime?'} %>
-<%end%>
 
 <script>
   $('.star-rating').raty({

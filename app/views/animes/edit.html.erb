@@ -3,8 +3,9 @@
 <h1>Editing Anime</h1>
 
 <%= render 'form' %>
-<%= link_to 'Show', @anime %> |
-<%= link_to 'Back', animes_path %>
+<br>
+<%= link_to 'Atras', animes_path, class: "btn btn-primary"  %> |
+<%= link_to 'Ver', @anime, class: "btn btn-info"  %> 
 <%else%>
 <div class="error">
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
