@@ -1,0 +1,9 @@
+<div class="row">
+  <% @animes.each do |anime| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <%= link_to (image_tag anime.image.url(:medium), class: 'image'), anime %>
+    </div>
+  </div>
+  <% end %>
+</div>

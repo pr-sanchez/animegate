@@ -104,7 +104,6 @@
           <div class="star-rating" data-score= <%= review.rating %>> </div>
           <p><%= review.comment %></p>
         </div>
-      
         <%end%>
         <%end%>
       </div>
@@ -116,7 +115,7 @@
 <% if current_user.try(:admin?) %>
 
 <%= link_to 'Editar', edit_anime_path(@anime) %> |
-<%= link_to 'Atras', animes_path %>
+<%= link_to 'Atras', animes_path %> |
 <%= link_to 'Borrar', @anime, method: :delete, data: {confirm: '¿Estas seguro que quieres borrar este anime?'} %>
 <%end%>
 

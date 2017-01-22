@@ -2,6 +2,14 @@ class AnimesController < ApplicationController
   before_action :set_anime, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+  def search
+    if params[:search].present?
+      @animes = Anime.search(params[:search])
+    else
+      @animes = Anime.all
+    end
+  end
+
   def index
     @animes = Anime.all
   end

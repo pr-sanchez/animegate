@@ -1,5 +1,12 @@
+<% if current_user.try(:admin?) %>
 <h1>New Anime</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', animes_path %>
+<%else%>
+<div class="error">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<%end%>
+
