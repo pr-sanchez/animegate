@@ -11,7 +11,7 @@ class AnimesController < ApplicationController
   end
 
   def index
-    @animes = Anime.all
+    @animes = Anime.all.paginate(page: params[:page], per_page: 7)
   end
 
   def show

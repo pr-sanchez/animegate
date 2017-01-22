@@ -15,6 +15,7 @@
           <% if current_user.try(:admin?) %>
             <li><%= link_to "New Anime", new_anime_path, class: "active"%></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <li><a><%= current_user.email %></a></li>
           <% elsif user_signed_in? %>
             <li><%= link_to "Account", edit_user_registration_path %></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
