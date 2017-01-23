@@ -132,7 +132,8 @@
   <% if current_user.try(:admin?) %>
 <%= link_to 'Atras', animes_path, class: "btn btn-info" %> |
 <%= link_to 'Editar', edit_anime_path(@anime), class: "btn btn-success" %> |
-<%= link_to 'Borrar', @anime, method: :delete, class: "btn btn-danger", data: {confirm: '¿Estas seguro que quieres borrar este anime?'} %>
+<%= link_to 'Borrar', anime_path(@anime), method: :delete, class: "btn btn-danger", data: {confirm: '¿Estas seguro que quieres borrar este anime?'} %>
+
 <%end%>
 
 
