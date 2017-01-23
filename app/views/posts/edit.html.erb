@@ -1,6 +1,6 @@
   <div id="main_content">
     <div id="header">
-      <p>Noticias</p>
+      <p>Editar</p>
       <% if current_user.try(:admin?) %>
       <div class="buttons">
         <%= link_to "Nueva noticia", new_post_path, class: "btn btn-primary"%>
@@ -13,7 +13,7 @@
 
 
 <div id="page_wrapper">
-<h1>Nueva noticia</h1>
+<h1>Editar noticia</h1>
 
 <%= render 'form' %>
 
