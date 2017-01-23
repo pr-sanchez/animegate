@@ -15,9 +15,17 @@
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <%= link_to (image_tag anime.image.url(:medium), class: 'image'), anime %>
+
+       <tr>
+    <p class="text-center titulo-anime"><strong><%= anime.title %></strong></p>
+   <!-- <td><%= link_to 'Ver', anime_path(anime) %></td>-->
+  </tr>
+
     </div>
   </div>
   <% end %>
+
+ 
 </div>
 
 <%= will_paginate @animes, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>
