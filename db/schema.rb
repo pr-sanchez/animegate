@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170123135455) do
     t.text     "description"
     t.string   "anime_size"
     t.string   "studio"
+    t.string   "rating"
     t.string   "fansub"
     t.string   "language"
     t.string   "subtitles"
@@ -36,7 +37,6 @@ ActiveRecord::Schema.define(version: 20170123135455) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "rating"
     t.string   "capture_file_name"
     t.string   "capture_content_type"
     t.integer  "capture_file_size"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20170123135455) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.integer  "anime_id"
   end
 
   create_table "users", force: :cascade do |t|
