@@ -109,6 +109,7 @@ a{
     }
   }
   #post_content {
+
     padding: 1em 3em;
     .title {
       font-weight: 500;
@@ -118,6 +119,7 @@ a{
       margin-bottom: 0;
     }
     .body {
+
       font-size: 1.5em;
       line-height: 1.75;
     }
@@ -135,6 +137,7 @@ a{
         margin-top: 2em;
       }
       .comment {
+
         border-bottom: 1px solid #d6dce0;
         padding: 1.5em 2em;
         .clear_both {
@@ -144,6 +147,7 @@ a{
           clear: both;
         }
         .comment_content {
+
           float: left;
           .comment_name {
             margin: 1em 0 0 0;
@@ -169,6 +173,7 @@ a{
     }
   }
   #page_wrapper {
+  
     padding: 3em;
     #profile_image {
       width: 300px;
@@ -206,7 +211,7 @@ a{
     line-height: 1.75;
   }
   input[type="text"] {
-    height: 35px;
+    height: 50px;
   }
   textarea {
     min-height: 180px;
