@@ -14,6 +14,7 @@
         <ul class="nav navbar-nav pull-right">
         
           <% if current_user.try(:admin?) %>
+            <li><%= link_to 'Anime', animes_path %></li>
             <li><%= link_to "Nuevo anime", new_anime_path, class: "active "%></li>
 
             <li class="btn-group" role="group">
@@ -29,9 +30,12 @@
               </ul>
             </li>
           <% elsif user_signed_in? %>
+            <li><a href="#"><%= current_user.email %></a></li>
+            <li><%= link_to 'Anime', animes_path %></li>
             <li><%= link_to "Cuenta", edit_user_registration_path %></li>
             <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
           <%else %>
+            <li><%= link_to 'Anime', animes_path %></li>
             <li><%= link_to "Registrarse", new_user_registration_path, class: "active"%></li>
             <li><%= link_to "Iniciar sesión", new_user_session_path, class: "active"%></li>
           <%end%>
@@ -39,7 +43,7 @@
                <%=  form_tag search_animes_path, method: :get, class: "navbar-form navbar-right", role: "search" do%>
             <p>
             <%= text_field_tag :search, params[:search], class: "form-control" %>
-            <%= submit_tag "Search", name:nil, class: "btn btn-default" %>
+            <%= submit_tag "Buscar", name:nil, class: "btn btn-default" %>
             </p>
         
         <%end%>

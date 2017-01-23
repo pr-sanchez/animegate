@@ -1,4 +1,20 @@
-<h1>New Post</h1>
+
+
+
+  <div id="main_content">
+    <div id="header">
+      <p>Noticias</p>
+  <% if current_user.try(:admin?) %>
+      <div class="buttons">
+        <%= link_to "Nueva noticia", new_post_path, class: "btn btn-primary"%>
+      </div>
+      <% end %>
+    </div>
+    <% flash.each do |name, msg|%>
+    <%= content_tag(:div, msg, class: "alert") %>
+    <% end %>
+<div id="page_wrapper">
+<h1>Nueva noticia</h1>
 <%= form_for :post, url: posts_path do |f| %>
 
  <div class="field">
@@ -21,3 +37,6 @@
     <%= f.submit 'Nuevo Post', :class => 'btn btn-success' %>
   </div>
 <% end %>
+
+</div>
+</div>
