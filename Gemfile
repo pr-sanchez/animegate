@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -16,6 +15,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
@@ -28,3 +28,9 @@ gem 'rails_admin', '~> 1.1', '>= 1.1.1'
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
+
+
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
