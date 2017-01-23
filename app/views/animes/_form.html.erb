@@ -1,3 +1,5 @@
+
+
 <%= form_for @anime, html: { multipart: true } do |f| %>
   <% if @anime.errors.any? %>
     <div id="error_explanation">
@@ -12,75 +14,85 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
+    <%= f.label :Título %><br>
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
+    <%= f.label :Descripción %><br>
+    <%= f.text_area :description, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :anime_size %><br>
-    <%= f.text_field :anime_size %>
-  </div>
+    <%= f.label :Peso_por_capitulo %><br>
+    <%= f.text_field :anime_size, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :studio %><br>
-    <%= f.text_field :studio %>
-  </div>
+    <%= f.label :Estudio %><br>
+    <%= f.text_field :studio, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.text_field :rating %>
-  </div>
+    <%= f.label :Tipo %><br>
+    <%= f.text_field :rating, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :fansub %><br>
-    <%= f.text_field :fansub %>
-  </div>
+    <%= f.label :Fansub %><br>
+    <%= f.text_field :fansub, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :language %><br>
-    <%= f.text_field :language %>
-  </div>
+    <%= f.label :Idioma %><br>
+    <%= f.text_field :language, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :subtitles %><br>
-    <%= f.text_field :subtitles %>
-  </div>
+    <%= f.label :Subtitulos %><br>
+    <%= f.text_field :subtitles, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :ovas %><br>
-    <%= f.text_field :ovas %>
-  </div>
+    <%= f.label :OVAs %><br>
+    <%= f.text_field :ovas, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :resolution %><br>
-    <%= f.text_field :resolution %>
-  </div>
+    <%= f.label :Resolución %><br>
+    <%= f.text_field :resolution, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :file_format %><br>
-    <%= f.text_field :file_format %>
-  </div>
+    <%= f.label :Formato %><br>
+    <%= f.text_field :file_format, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :anime_episodes %><br>
-    <%= f.text_field :anime_episodes %>
-  </div>
+    <%= f.label :Episodios %><br>
+    <%= f.text_field :anime_episodes, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :server %><br>
-    <%= f.text_field :server %>
-  </div>
+    <%= f.label :Servidor %><br>
+    <%= f.text_field :server, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :uploader %><br>
-    <%= f.text_field :uploader %>
-  </div>
+    <%= f.label :Uploader %><br>
+    <%= f.text_field :uploader, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :year %><br>
-    <%= f.text_field :year %>
-  </div>
+    <%= f.label :Año %><br>
+    <%= f.text_field :year, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :genre %><br>
-    <%= f.text_field :genre %>
-  </div>
+    <%= f.label :Generos %><br>
+    <%= f.text_field :genre, autocomplete: "off", class: 'form-control' %>
+  </div><br>
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image, class: 'btn btn-warning'  %>
+    <%= f.label :Portada %><br>
+    <%= f.file_field :image, :class => 'btn btn-warning'  %>
+    
+    <br>
+  </div><br>
+  <div class="field">
+    <%= f.label :Capturas %><br>
+    <%= f.file_field :capture, :class => 'btn btn-warning'  %>
+    
     <br>
   </div>
   <div class="actions">
-    <%= f.submit 'Actualizar', :class => 'btn btn-success' %>
+    <%= f.submit :class => 'btn btn-success' %>
   </div>
 <% end %>
+
+
+</div>

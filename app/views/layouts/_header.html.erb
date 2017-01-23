@@ -1,17 +1,23 @@
+
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapsed" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Anime Gate", root_path, class: "navbar-brand" %>
+
+      <%= link_to "Anime Gate", root_path, class: "navbar-brand titulo-menu" %>
+        <%= link_to root_path do %>
+          <img style="position:relative; width:200px !important; margin-top:8px; margin-left:-80px;" src="<%= asset_path 'logo.svg' %>">
+        <% end %>
+          
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav pull-right">
+        <ul class="nav navbar-nav">
         
           <% if current_user.try(:admin?) %>
             <li><%= link_to 'Anime', animes_path %></li>

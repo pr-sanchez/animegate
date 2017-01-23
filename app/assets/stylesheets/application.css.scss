@@ -14,11 +14,18 @@
  *= require_self
  */
 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+  .reviews-panel{
+
+/*codigo aqui pero lo borre xd*/
+  }
+
+
   body{
-  background: #AA4847;
+  background: #2980b9;
   }
 
   .review_title{
@@ -28,6 +35,7 @@
   .reviews{
     padding: 15px 0;
     border-bottom: 1px solid #EAEAEA;
+
       .star-rating{
       padding-bottom: 8px;
       }
@@ -44,8 +52,9 @@ nav.navbar {
 }
 
 
+
 .btn-group{
-  margin-top:2px;
+  margin-top: 4.5px;
 }
 
 
@@ -61,11 +70,15 @@ a{
 
 
 
+.btn-default{
+   color: #000 !important;
+}
 
 #main_content {
   margin-left: 20px;
   margin-right: 20px;
   background: #fff;
+  padding: 10px 10px 10px 10px;
   #header {
     padding: 1em 3em;
     font-size: 1.5em;
@@ -81,8 +94,9 @@ a{
     }
     .buttons {
       float: right;
-      margin-top: -6px;
+      margin-top: -36px;
       .button {
+
         font-size: .8em;
         margin-left: .5em;
       }
@@ -236,3 +250,52 @@ a{
   font-size: 1.5em;
 }
 
+
+
+
+#disqus_thread{background: #000;}
+
+
+.portada-anime img{
+  width: 660px;
+  height: 590px;
+  margin-bottom: 20px;
+}
+
+.capturas img{
+  width: 700px;
+  height: 600px;
+  margin-bottom:10px;
+}
+
+
+
+div.img1 {
+  font-family:oswald, helvetica, arial, sans-serif;
+  background: url(/assets/images/anime/fondos/anohana.jpg);
+  min-width: 500px;
+  max-width: 1700px;
+  background-size:cover;
+  background-attachment: fixed; 
+  background-position:0 0px;
+  z-index: 2;
+}
+
+
+.titulo-menu{
+    font-family: 'Lobster', cursive;
+    color: #000 !important;
+    font-size: 25px;
+}
+
+.titulo-anime{
+    font-family: 'Lobster', cursive;
+    color: #000 !important;
+    font-size: 25px;
+}
+
+.titulo-noticias{
+    font-family: 'Lobster', cursive;
+    color: #000 !important;
+    font-size: 25px;
+}

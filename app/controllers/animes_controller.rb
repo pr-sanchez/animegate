@@ -11,15 +11,15 @@ class AnimesController < ApplicationController
   end
 
   def index
-    @animes = Anime.all.paginate(page: params[:page], per_page: 7)
+    @animes = Anime.all.paginate(page: params[:page], per_page: 8)
   end
 
   def show
-    @reviews = Review.where(anime_id: @anime.id).order("created_at DESC")
+    @reviews = Review.where(anime_id: @anime.id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
     if @reviews.blank?
       @avg_review = 0
     else
-      @avg_review = @reviews.average(:rating).round(2)
+     @avg_review = @reviews.average(:rating).present? ? @reviews.average(:rating).round(2) : 0
     end
   end
 
@@ -70,6 +70,6 @@ class AnimesController < ApplicationController
     end
 
     def anime_params
-      params.require(:anime).permit(:title, :description, :anime_size, :studio, :rating, :fansub, :language, :subtitles, :ovas, :resolution, :file_format, :anime_episodes, :server, :uploader, :year, :genre, :image)
+      params.require(:anime).permit(:title, :description, :anime_size, :studio, :rating, :fansub, :language, :subtitles, :ovas, :resolution, :file_format, :anime_episodes, :server, :uploader, :year, :genre, :image, :capture)
     end
 end

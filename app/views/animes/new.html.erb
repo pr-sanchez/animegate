@@ -1,12 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="text-center titulo-anime">Nuevo Anime</h1>
+  </div>
+
+  <div class="panel-body">
 <% if current_user.try(:admin?) %>
-<h1>New Anime</h1>
+
 
 <%= render 'form' %>
-
-<%= link_to 'Back', animes_path %>
+<br>
+<%= link_to 'Atras', animes_path, class: 'btn btn-default' %>
+<br><br>
 <%else%>
+
 <div class="error">
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 <%end%>
 
+</div>
+
+</div>

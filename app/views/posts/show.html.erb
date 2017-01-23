@@ -4,7 +4,7 @@
 	  <h1 class="title">
 	  <%= @post.title %>
 	  </h1><br>
-	  <p class="body">
+      <p class="body">
 	  <%= @post.body %>
 	  </p><br><br><br>
 	  <p class="date">
@@ -17,6 +17,9 @@
 	  </p>
 
 
+
+<!--
+
 	  <div id="comments">
 	  	<h2><%= @post.comments.count %> Comentarios</h2>
 	  	<hr>
@@ -25,8 +28,9 @@
 	  	<h3> Añadir comentario:</h3>
 	  	<%= render "comments/form" %>
 
-	</div>	
+	</div>	-->
 
 </div>
+	  <%= render 'disqus' %>
 
 </div>

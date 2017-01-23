@@ -1,12 +1,16 @@
 <% if !user_signed_in? %>
 <div class="jumbotron">
-  <h1>Tu pagina de reseñas de Anime favorita.</h1>
+  <h2>Tu pagina para descargar Anime favorita.</h2>
   <p>texto aqui</p>
-  <p><%= link_to "Registrate para escribir una reseña", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  <p><%= link_to "Registrate votar y escribir una opinión", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
   
 </div>
 <%end%>
 
+<div id="main_content">
+    <div id="header">
+      <h2 class="text-center titulo-anime">Anime</h2>
+    </div><br><br>
 <div class="row">
   <% @animes.each do |anime| %>
   <div class="col-sm-6 col-md-3">
@@ -18,3 +22,4 @@
 </div>
 
 <%= will_paginate @animes, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>
+</div>
