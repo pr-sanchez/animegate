@@ -28,8 +28,7 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
-  # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
@@ -76,4 +75,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Disable Rails's static asset server (Apache or nginx will already do this)  
+config.serve_static_assets = false
+
+# Compress JavaScripts and CSS  
+config.assets.compress = true
+
+# Don't fallback to assets pipeline if a precompiled asset is missed  
+config.assets.compile = false
+
 end
