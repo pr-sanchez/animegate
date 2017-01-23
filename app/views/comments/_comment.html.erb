@@ -5,8 +5,9 @@
     <p class="comment_time"><%= time_ago_in_words(comment.created_at)%> Ago</p>
   </div>
 
-  <p><%= link_to 'Borrar', [comment.post, comment],
-  method: :delete,
-  class: "button",
-  data:{confirm: '¿Estas seguro de querer borrar este comentario?'} %></p>
+
+  <% if current_user.try(:admin?) %>
+
+  <p><%= link_to 'Borrar', [comment.post, comment], method: :delete, class: "button", data:{confirm: '¿Estas seguro de querer borrar este comentario?'} %></p>
+  <% end %>
 </div>

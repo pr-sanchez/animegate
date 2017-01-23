@@ -1,4 +1,4 @@
-
+  <% if user_signed_in? %>
 
 
 <%= form_for ([@post, @post.comments.build]) do |f| %><br>
@@ -16,4 +16,10 @@
 	<%= f.submit%>
 </p>
 
+<% end %>
+<%else %>
+
+<p>Necesitas Iniciar sesión para poder hacer comentarios</p> 
+<%= link_to "Iniciar sesión", new_user_session_path, class: "btn btn-default"%>
+<br><br>
 <% end %>
