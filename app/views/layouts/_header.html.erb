@@ -20,16 +20,16 @@
         <ul class="nav navbar-nav">
         
           <% if current_user.try(:admin?) %>
+            <li><%= link_to 'Noticias', root_path %></li>
             <li><%= link_to 'Anime', animes_path %></li>
             <li><%= link_to "Nuevo anime", new_anime_path, class: "active "%></li>
-            <li><%= link_to 'Noticias', root_path %></li>
             <li class="btn-group" role="group">
               <a type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  Cuenta
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#"><%= current_user.email %></a></li>
+                <li><a href="#">Conectado como: <%= current_user.email %></a></li>
                 <li><%= link_to "Editar cuenta", edit_user_registration_path %></li>
                 <li><%= link_to 'Panel de administrador', rails_admin.dashboard_path%></li>
                 <li><%= link_to "Terminar sesión", destroy_user_session_path, method: :delete %></li>
@@ -37,13 +37,13 @@
             </li>
           <% elsif user_signed_in? %>
             <li><a href="#"><%= current_user.email %></a></li>
-            <li><%= link_to 'Anime', animes_path %></li>
             <li><%= link_to 'Noticias', root_path %></li>
+            <li><%= link_to 'Anime', animes_path %></li>
             <li><%= link_to "Cuenta", edit_user_registration_path %></li>
             <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
           <%else %>
-            <li><%= link_to 'Anime', animes_path %></li>
             <li><%= link_to 'Noticias', root_path %></li>
+            <li><%= link_to 'Anime', animes_path %></li>
             <li><%= link_to "Registrarse", new_user_registration_path, class: "active"%></li>
             <li><%= link_to "Iniciar sesión", new_user_session_path, class: "active"%></li>
           <%end%>
