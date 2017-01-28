@@ -3,14 +3,16 @@ Rails.application.routes.draw do
 
 
 
+
 get "cookies" => 'cookies#index'  #Asi se redirecciona una ruta, por ejemplo aqui en vez de usar cookies_index_path y me saliera en el url cookies/index,  con esto lo acorte a cookies_path con url cookies
+get "anime" => 'animes#index'
+get "news" => 'posts#index'
 
   resources :posts do
     resources :comments
   end
 
-
-  root "posts#index"
+  root "home#index"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
