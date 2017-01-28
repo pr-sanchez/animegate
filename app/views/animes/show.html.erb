@@ -113,7 +113,7 @@
           <br><br><hr>
 
           <% if @reviews.blank? %>
-          <h3>Sin criticas hasta ahora, te gustaria ser el primero en opinar?</h3>
+          <h3>Sin criticas hasta ahora ¿Te gustaria ser el primero en opinar?</h3>
           <%= link_to "Escribe tu opinión", new_anime_review_path(@anime), class: "btn btn-danger" %>
           <%else%>
           <% @reviews.each do |review| %>
