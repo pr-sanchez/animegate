@@ -72,4 +72,6 @@ class AnimesController < ApplicationController
     def anime_params
       params.require(:anime).permit(:title, :description, :anime_size, :studio, :rating, :fansub, :language, :subtitles, :ovas, :resolution, :file_format, :anime_episodes, :server, :uploader, :year, :genre, :image, :capture)
     end
-end
+
+
+end 

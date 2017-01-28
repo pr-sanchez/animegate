@@ -49,6 +49,7 @@ width:auto;
 
 nav.navbar {
     background-color: #f5f7f9;
+    border-bottom: 1px solid rgba(0,0,0,0.9);
 }
 
 
@@ -256,12 +257,11 @@ a{
 #disqus_thread{background: #000;}
 
 
-.portada-anime img{
-  width: 660px;
-  height: 590px;
+.portada-anime{
+  width: 520px !important;
+  height: 300px !important;
   margin-bottom: 20px;
 }
-
 .capturas img{
   width: 700px;
   height: 600px;
@@ -429,9 +429,173 @@ a:link {
 
 
 .portada{
+  margin-top: -20px;
   background-image: image-url("/assets/anime/fondos/bg1.jpg");
   background-attachment: fixed; 
   background-position:0 0px;
 }
 
 
+
+
+
+*{
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+-moz-transition:0.7s;
+-ms-transition:1s;
+-o-transition:1s;
+-webkit-transition:1s;
+transition:1s;
+        
+list-style:none;
+text-decoration:none;
+margin:0;
+padding:0;}
+
+
+
+
+/* Texto Inicial */
+.texto {
+  padding:100px 0px;
+  text-align: center;
+  color:#fff;
+  position: relative;
+  font-weight: 300;
+  z-index: 1;
+  
+}
+
+.texto h2, .texto p {
+  background: rgba(0,0,0,.9);
+  display:inline-block;
+  padding:10px 20px;
+    z-index: 1;
+}
+
+.texto h2 {
+  font-size:40px;
+  letter-spacing: 2.5px;
+  font-weight: normal;
+    background:rgba(0,0,0,.6);  /* creo mi div class texto, mi <h2> mi titulo cuando lo ponga centro*/
+    z-index: 1;
+}
+
+.texto p {
+  font-size:20px;
+  letter-spacing: 2.5px;           /* hago un salto de linea con <br>  despues del h2 y hago mi <p> para el www*/
+    background:rgba(0,0,0,.6);
+
+    z-index: 1;
+}
+
+/* Principal */
+
+
+.principal {
+  color:#fff;
+min-width: 750px;
+max-width: 950px;
+z-index: 1;
+}
+
+.principal article {
+  padding:20px;
+  background:#fff;
+  margin-bottom: 30px; /*texto despues del texto 1000*/
+  position: relative;
+  margin-top: 50px;
+margin-left: auto;
+margin-right: auto;
+  background:rgba(0,0,0,.8);
+  z-index: 1;
+  
+}
+
+.principal article p {
+  margin-bottom: 5px;
+  line-height:24px;
+    font-family: arial;
+  z-index: 1;
+  
+}
+
+
+
+
+.principal article .fecha {
+color:#A3A3A3;
+z-index: 1;
+}
+
+   article p a.mega{
+    position: relative;
+top: 30px;
+  z-index: 3;
+}
+a.boton { 
+color: #3498db; 
+border: 3px #0000FF solid; 
+padding: 20px 60px 20px 60px; 
+background-color: none; 
+font-family: 'Black Ops One', cursive, verdana; /*fuentes: font-family: 'Roboto Mono', ; font-family: 'Permanent Marker', cursive;  font-family: 'Rock Salt', cursive;  font-family: 'Luckiest Guy', cursive;  font-family: 'Fugaz One', cursive;    font-family: 'Black Ops One', cursive;   font-family: 'Fredericka the Great', cursive;   font-family: 'Freckle Face', cursive;    font-family: 'Frijole', cursive;    font-family: 'Timmana', sans-serif;*/
+font-size: 20px; 
+background-color: #000;
+font-weight: bold; 
+text-decoration: none; 
+border-radius: 15px; 
+z-index: 9;
+} 
+a.boton:hover { 
+font-style: italic; 
+box-shadow: 0px 0px 70px 0px #58FAF4; ; 
+color:#5858FA;
+
+} 
+a.boton:active { 
+font-color: #fff; 
+} 
+a.boton:visited { 
+background-position: 0px -26px; 
+} 
+
+
+
+.color.azul {color: #00FFFF;}
+.color.verde {color: #00FF40;}
+.color.naranja {color: #e67e22;}
+.color.rojo {color: #FF0000;}
+.color.negro {color: #000;}
+.color.blanco{color:#FFFFFF;}
+.color.gris{color:#D1CECA;}
+.color.morado{color:#E071F9;}
+.color.amarillo{color:#F0F971;}
+.color.azul2{color:#1100FA;}
+.color.verde2{color:#00FAB3;}
+.color.marron{color:#B07F4F;}
+.color.azul3{color:#5C8EFF;}
+.color.verde3{color:#98FF5C;}
+.color.rosa{color:#FE80D4;}
+.color.azul4{color:#CDEBFA;}
+
+
+ #anohana{
+  font-family:oswald, helvetica, arial, sans-serif;
+  background-image: image-url("/assets/anime/fondos/anohana.jpg")  !important;
+  min-width: 500px;
+  max-width: 1700px;
+  background-size:cover;
+  background-attachment: fixed; 
+  background-position:0 0px;
+  margin-top:-25px;
+  z-index: 2;
+}
+
+.botonmega{
+  width: 200px;
+  height: 60px;
+  margin-top: 30px;
+  
+}

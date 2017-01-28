@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
 
 
-
+get "animes/anohana" => "animes#anohana"
+get "animes/2" => "animes#2"
+get "animes/3" => "animes#3"
 
 get "cookies" => 'cookies#index'  #Asi se redirecciona una ruta, por ejemplo aqui en vez de usar cookies_index_path y me saliera en el url cookies/index,  con esto lo acorte a cookies_path con url cookies
-get "anime" => 'animes#index'
+get "animes" => 'animes#index'
 get "news" => 'posts#index'
 
   resources :posts do

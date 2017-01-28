@@ -1,5 +1,5 @@
 <% if current_user.try(:admin?) %>
-
+<div class="container">
   <div id="main_content">
     <div id="header">
       <h1 class="titulo-noticias-editar text-center">Editar</h1>
@@ -21,5 +21,6 @@
 <%else%>
 <div class="error">
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
 </div>
 <% end %>
