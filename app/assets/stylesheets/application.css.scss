@@ -257,11 +257,7 @@ a{
 #disqus_thread{background: #000;}
 
 
-.portada-anime{
-  width: 520px !important;
-  height: 300px !important;
-  margin-bottom: 20px;
-}
+
 .capturas img{
   width: 700px;
   height: 600px;
@@ -307,15 +303,13 @@ div.img1 {
     font-size: 30px;
 }
 
-.titulo-donar{
 
-  color: #000 !important;  
-}
 
 
 .boton-paypal{
-  float:right;
+  float: left;
   background: rgba(0,0,0,0.8);
+  margin-top:50px;
   border-radius: 10px;
 }
 
@@ -427,7 +421,7 @@ a:link {
 
 
 
-
+/* portada del index*/
 .portada{
   margin-top: -20px;
   background-image: image-url("/assets/anime/fondos/bg1.jpg");
@@ -435,11 +429,16 @@ a:link {
   background-position:0 0px;
 }
 
+.portada-anime{
+  width: 520px !important;
+  height: 300px !important;
+  margin-bottom: 20px;
+}
 
 
 
 
-*{
+/* esta vaina me daña el slideshow *{
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
@@ -453,6 +452,8 @@ list-style:none;
 text-decoration:none;
 margin:0;
 padding:0;}
+
+*/
 
 
 
@@ -609,3 +610,6 @@ background-position: 0px -26px;
   background-position:0 0px;
   z-index: 2;
 }
+
+
+
