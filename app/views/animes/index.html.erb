@@ -5,23 +5,28 @@
 <div class="container-fluid">
 <div id="main_content">
     <div id="header">
-      <h2 class="text-center titulo-anime">Anime</h2>
+      <h2 class="text-center titulos">Anime</h2>
     </div><br><br>
 
-<!--<div class="row">
+<div class="row">
   <% @animes.each do |anime| %>
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
+
       <%= link_to (image_tag anime.image.url(:medium), class: 'image'), anime %>
+      <!--<div class="hover_brillo" style="text-align: right;"></div>-->
+
       <tr>
     <p class="text-center titulo-anime"><strong><%= anime.title %></strong></p>
-    <td><%= link_to 'Ver', anime_path(anime) %></td>
+    <!--<td><%= link_to 'Ver', anime_path(anime) %></td>-->
      </tr>
     </div>
   </div>
   <% end %>
-</div>-->
+</div>
 
+
+<!--
 <div class="row">
 
   <div class="col-sm-6 col-md-3">
@@ -32,15 +37,6 @@
      </tr>
     </div>
   </div>
-<!--
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <%= link_to (image_tag "/assets/anime/portadas/anohana.jpg", :class => "img-responsive portada-anime"), animes_anohana_path %>
-      <tr>
-      <p class="text-center titulo-anime"><strong>Anohana</strong></p>
-     </tr>
-    </div>
-  </div>
 
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
@@ -60,11 +56,19 @@
     </div>
   </div>
 
-    -->
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <%= link_to (image_tag "/assets/anime/portadas/anohana.jpg", :class => "img-responsive portada-anime"), animes_anohana_path %>
+      <tr>
+      <p class="text-center titulo-anime"><strong>Anohana</strong></p>
+     </tr>
+    </div>
+  </div>
 
-</div>
 
- <!-- Pagination -->
+</div>  -->
+
+ <!-- Pagination
         <div class="row text-center">
             <div class="col-lg-12">
                 <ul class="pagination">
@@ -80,25 +84,25 @@
                     <li>
                         <%= link_to '3', animes_2_path %>
                     </li>
-                    <!--
+
                     <li>
                         <a href="#">4</a>
                     </li>
                     <li>
                         <a href="#">5</a>
-                    </li>-->
+                    </li>
                     <li>
                         <%= link_to '➡', animes_2_path %>
                     </li>
                 </ul>
             </div>
         </div>
-        <!-- /.row -->
+        -->
 
 
 
 
-<!-- viejo will paginate que sirve con el crear anime 
-<%= will_paginate @animes, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>-->
+
+<%= will_paginate @animes, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>
 </div>
 </div>

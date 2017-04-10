@@ -74,4 +74,4 @@ class AnimesController < ApplicationController
     end
 
 
-end 
+end

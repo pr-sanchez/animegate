@@ -1,9 +1,7 @@
 <div class="container">
-
-
 	<div id="main_content">
 	  <div id="header">
-	    <h2 class="titulo-noticias text-center">Noticias</h2>
+	    <h2 class="titulos text-center">Noticias</h2>
 	<% if current_user.try(:admin?) %>
 	    <div class="buttons">
 	    	<%= link_to "Nueva noticia", new_post_path, class: "btn btn-default"%>
@@ -18,14 +16,11 @@
 <div class="post_wrapper">
   <h4 class="title"><%= link_to post.title, post %></h4>
   <p class="body"><%= link_to post.body, post %></p>
-  <p class="date"> <%= post.created_at.strftime("%B, %d, %Y") %> </p>	
+  <p class="date"> <%= post.created_at.strftime("%B, %d, %Y") %> </p>
 </div>
 <% end %>
 
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>
 
 	</div>
-
-
 </div>
-

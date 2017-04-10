@@ -1,10 +1,11 @@
-<% if current_user.try(:admin?) %>
 <div class="container">
+
+<% if current_user.try(:admin?) %>
   <div id="main_content">
     <div id="header">
       <h1 class="titulo-noticias-editar text-center">Editar</h1>
-  
-    
+
+
     </div>
     <% flash.each do |name, msg|%>
     <%= content_tag(:div, msg, class: "alert") %>
@@ -17,10 +18,10 @@
 <%= render 'form' %>
 
 </div>
-</div>  
+</div>
 <%else%>
 <div class="error">
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
-</div>
 <% end %>
+</div>

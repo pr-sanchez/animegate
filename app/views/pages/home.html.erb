@@ -1,49 +1,186 @@
+<!--
 <div class="portada">
   <div class="container">
     <%= image_tag "/assets/anime/fondos/portada.png", :class => "img-responsive" %>
   </div>
 </div>
 
-  <div class="main">
-    <div class="slides">
+-->
+<div class="container-fluid-full">
+
+  <div class="col-md-6 col-lg-9 col-sm-12">-->
+    <div class="main">
+      <div class="slides">
+        <div>
+        <%= image_tag "/assets/anime/slideshow/1.jpg", class: "img-responsive" %>
+        </div>
       <div>
-      <%= image_tag "/assets/anime/slideshow/1.jpg", class: "img-responsive" %>
+      <%= image_tag "/assets/anime/slideshow/2.jpg", class: "img-responsive" %>
       </div>
-	  <div>
-	  <%= image_tag "/assets/anime/slideshow/2.jpg", class: "img-responsive" %>
-	  </div>
-	  <div>
-	  <%= image_tag "/assets/anime/slideshow/3.jpg" %>
-	  </div>
-	  <div>
-	  <%= image_tag "/assets/anime/slideshow/4.jpg" %>
-	  </div>
-	</div>
+      <div>
+      <%= image_tag "/assets/anime/slideshow/3.jpg" %>
+      </div>
+      <div>
+      <%= image_tag "/assets/anime/slideshow/4.jpg" %>
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+
+<% if user_signed_in? %>
+<div class="col-sm-12 col-lg-3 col-md-6 user-details">
+  <div class="user-image">
+    <%= image_tag(current_user.avatar.url(:thumb), :class => "round-image-50 img-responsive" ) %>
   </div>
+  <div class="user-info-block">
+  <div class="user-heading">
+    <h2> <%= current_user.username %></h2>
+    <h4><span class="help-block">Animegate Member</span><h2>
+  </div>
+    <ul class="navigation">
+    <li class="active">
+      <a data-toggle="tab" href="#information">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </li>
+     <li>
+       <a data-toggle="tab" href="#settings">
+         <span class="glyphicon glyphicon-cog"></span>
+       </a>
+     </li>
+                  <li>
+                      <a data-toggle="tab" href="#email">
+                          <span class="glyphicon glyphicon-envelope"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a data-toggle="tab" href="#events">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a data-toggle="tab" href="#chat">
+                          <span class="glyphicon glyphicon-globe"></span>
+                      </a>
+                  </li>
+              </ul>
+              <div class="user-body">
+                  <div class="tab-content">
+                      <div id="information" class="tab-pane active">
+                          <h4 class="subtitulos text-center">Cuenta</h4>
+                          <hr class="style1">
+                        <h4 class="subtitulos">Correo: <%= current_user.email %></h4>
+                        <h4 class="subtitulos">Username: <%= current_user.username %></h4>
 
 
-	<script>
+                      </div>
+                      <div id="settings" class="tab-pane">
+                          <h4 class="subtitulos text-center">Opciones</h4>
+                          <hr class="style1">
 
-  $(function(){
-  $(".slides").slidesjs({
-    play: {
-      active: true,
-        // Activa el play y tambien los botones
-      effect: "slide",
-  
-      interval: 3000,
-        // [number] Time spent on each slide in milliseconds.
-      auto: true,
-        // [boolean] Start playing the slideshow on load.
-      swap: true,
-        // [boolean] show/hide stop and play buttons
-      pauseOnHover: false,
-        // [boolean] pause a playing slideshow on hover
-      restartDelay: 2500
-        // [number] restart delay on inactive slideshow
-    }
-  });
+                          <%= link_to "Cuenta", edit_user_registration_path, :class => "subtitulos" %><br>
+                          <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => "subtitulos" %>
+                      </div>
+                      <div id="email" class="tab-pane">
+                          <h4 class="subtitulos text-center">Contacto</h4>
+                          <hr class="style1">
+
+                          <p>Comunicarse con un administrador</p>
+                      </div>
+                      <div id="events" class="tab-pane">
+                          <h4 class="subtitulos text-center">Eventos</h4>
+                          <hr class="style1">
+
+                      </div>
+                      <div id="chat" class="tab-pane">
+                          <h4 class="subtitulos text-center">Chat</h4>
+                          <hr class="style1">
+
+                          <div id="hcr">
+                            <div class="hcrtab" onclick="showHidehcr()"> </div>
+                            <div class="hcrcontent">
+
+                          <script id="cid0020000110059859320" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">{"handle":"animegatewebcindario","arch":"js","styles":{"a":"0084ef","b":100,"c":"FFFFFF","d":"FFFFFF","k":"0084ef","l":"0084ef","m":"0084ef","n":"FFFFFF","p":"9.45","q":"0084ef","r":100,"surl":0,"cnrs":"0.35","fwtickm":1}}</script>
+
+                          <br>
+                          <div class="hc-credit">
+                          <span style="float:left">
+                          </span>
+                          <span style="float:right">
+                          <a href="javascript:showHidehcr()">
+                          <button class="myButton2">Cerrar</button>
+                          </a>
+                          </span>
+                          <span style="float:left">
+                          <a href="javascript:showHidehcr()">
+                          <button class="myButton2">Abrir</button>
+                          </a>
+                          </span>
+                          </div>
+                          </div>
+                          </div>
+                          <script type="text/javascript">
+                          var hcr = document.getElementById("hcr");
+                          hcr.style.right = (30-hcr.offsetWidth).toString() + "px";
+                          </script>
+                          </div>
+                          <div class='clear'></div>
+                          <span class='widget-item-control'>
+                          <span class='item-control blog-admin'>
+                          <a class='quickedit' href='//www.decopost.info.com/rearrange?blogID=6756021128688737735&widgetType=HTML&widgetId=HTML7&action=editWidget&sectionId=sidebar' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML7"));' target='configHTML7' title='Editar'>
+
+                          </a>
+                          </span>
+                          </span>
+                          <div class='clear'></div>
+                          </div></div>
+                          </div>
+                          <div class='clear'></div>
+                          </div>
+                          <div class='clear'></div>
+                          </div>
+                          </div>
+
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <%end%>
+<div class="row">
+<!-- CHAT-->
+
+</div>
+
+
+
+
+<script>
+
+$(function(){
+$(".slides").slidesjs({
+  play: {
+    active: true,
+      // Activa el play y tambien los botones
+    effect: "slide",
+
+    interval: 3000,
+      // [number] Time spent on each slide in milliseconds.
+    auto: true,
+      // [boolean] Start playing the slideshow on load.
+    swap: true,
+      // [boolean] show/hide stop and play buttons
+    pauseOnHover: false,
+      // [boolean] pause a playing slideshow on hover
+    restartDelay: 2500
+      // [number] restart delay on inactive slideshow
+  }
 });
-  
- 
-	</script>
+});
+
+
+</script>

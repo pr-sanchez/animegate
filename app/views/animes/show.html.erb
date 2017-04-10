@@ -1,133 +1,148 @@
 <div class="container">
-<div class="panel panel-default">
-  <div class="panel-body">
+<div class="panel panel-default show-anime">
+  <div class="panel-body ">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-6">
       <div class="col-sm-12">
       <div class="portada-anime">
       <%= image_tag @anime.image.url(:medium), class: "img-responsive" %>
+        <br>
       </div>
       </div>
-      <div class="star-rating" data-score= <%= @avg_review %> ></div>
-      <em><%="#{@reviews.length} Votos" %></em>
         <div class="table-responsible">
           <table class="table">
             <tbody>
               <tr>
+            <td><strong>Votos:</strong></td>
+             <div class="star-rating" data-score= <%= @avg_review %> ></div>
+              <td class="descripcion-anime"> <%="#{@reviews.length} Votos" %></td>
+              </tr>
+              <br>
+              <tr>
                 <td><strong>Titulo:</strong></td>
-                <td><%= @anime.title %></td>
+                <td class="descripcion-anime"><%= @anime.title %></td>
               </tr>
               <tr>
                   <td><strong>Descripción:</strong></td>
-                  <td><%= @anime.description %></td>
+                  <td class="descripcion-anime"><%= @anime.description %></td>
               </tr>
               <tr>
                 <td><strong>Peso por capitulo</strong></td>
-                <td><%= @anime.anime_size %></td>
+                <td class="descripcion-anime"><%= @anime.anime_size %></td>
               </tr>
 
               <tr>
                 <td><strong>Estudio:</strong></td>
-                <td><%= @anime.studio %></td>
+                <td class="descripcion-anime"><%= @anime.studio %></td>
               </tr>
 
               <tr>
                 <td><strong>Tipo:</strong></td>
-                <td><%= @anime.rating %></td>
+                <td class="descripcion-anime"><%= @anime.rating %></td>
               </tr>
 
               <tr>
                 <td><strong>Fansub:</strong></td>
-                <td><%= @anime.fansub %></td>
+                <td class="descripcion-anime"><%= @anime.fansub %></td>
               </tr>
 
               <tr>
                 <td><strong>Idioma:</strong></td>
-                <td><%= @anime.language %></td>
+                <td class="descripcion-anime"><%= @anime.language %></td>
               </tr>
 
               <tr>
                 <td><strong>Subtitulos:</strong></td>
-                <td><%= @anime.subtitles %></td>
+                <td class="descripcion-anime"><%= @anime.subtitles %></td>
               </tr>
 
               <tr>
                 <td><strong>OVAs:</strong></td>
-                <td><%= @anime.ovas %></td>
+                <td class="descripcion-anime"><%= @anime.ovas %></td>
               </tr>
 
               <tr>
                 <td><strong>Resolución:</strong></td>
-                <td><%= @anime.resolution %></td>
+                <td class="descripcion-anime"><%= @anime.resolution %></td>
               </tr>
 
               <tr>
                 <td><strong>Formato:</strong></td>
-                <td><%= @anime.file_format %></td>
+                <td class="descripcion-anime"><%= @anime.file_format %></td>
               </tr>
 
               <tr>
                 <td><strong>Episodios:</strong></td>
-                <td><%= @anime.anime_episodes %></td>
+                <td class="descripcion-anime"><%= @anime.anime_episodes %></td>
               </tr>
 
               <tr>
                 <td><strong>Servidor:</strong></td>
-                <td><%= link_to "MEGA", @anime.server,  target: "_blank",class: "btn btn-danger" %></td>
+                <td>
+                  <% if user_signed_in? %>
+                    <%= link_to "MEGA", @anime.server,  target: "_blank",class: "btn btn-danger" %>
+                  <% else %>
+                    <%= link_to "Necesitas Iniciar sesión para descargar",  user_session_path, class: "btn btn-info" %>
+                  <% end %>
+                </td>
               </tr>
 
               <tr>
                 <td><strong>Uploader:</strong></td>
-                <td><%= @anime.uploader %></td>
+                <td class="descripcion-anime"><%= @anime.uploader %></td>
               </tr>
 
               <tr>
                 <td><strong>Año:</strong></td>
-                <td><%= @anime.year %></td>
+                <td class="descripcion-anime"><%= @anime.year %></td>
               </tr>
 
               <tr>
                 <td><strong>Generos:</strong></td>
-                <td><%= @anime.genre %></td>
+                <td class="descripcion-anime"><%= @anime.genre %></td>
               </tr>
 
-             </tbody> 
-          </table> 
+             </tbody>
+          </table>
           <div class="capturas">
            <strong>Capturas:</strong>
-              <%= image_tag @anime.capture.url(:medium), class: "img-responsive" %> 
+              <%= image_tag @anime.capture.url(:medium), class: "img-responsive" %>
           </div>
 
-          <% if user_signed_in? %>
-          <%= link_to "Escribe una opinión", new_anime_review_path(@anime), class: "btn btn-success" %>
-          <% else %>
-          <%= link_to "Necesitas estar registrado para votar", new_user_registration_path, class: "btn btn-info" %>
-
-          <% end %>
         </div>
       </div>
 
-        <div class="reviews-panel">
-        <div class="col-md-7 col-md-offset-1">
-          <h1 class="review_title"><%= @anime.title %></h1>
-          <p><%= @anime.description %></p>
+      <div class="col-md-6">
+        <div class="panel panel-default reviews-panel">
+            <h1 class="panel-header">Criticas
+               <% if user_signed_in? %>
+                 <%= link_to "Escribe una opinión", new_anime_review_path(@anime), class: "btn btn-success" %>
+               <% else %>
+                 <%= link_to "Necesitas Iniciar sesión para votar",  user_session_path, class: "btn btn-info" %>
+               <% end %>
+             </h1>
+
+            <!--<h2 class="">Anime: <%= @anime.title %></h2>
+          <p><%= @anime.description %></p>-->
           <br><br><hr>
 
           <% if @reviews.blank? %>
-          <h3>Sin criticas hasta ahora ¿Te gustaria ser el primero en opinar?</h3>
+          <h3>¡Se el primero en opinar!</h3><br>
           <%= link_to "Escribe tu opinión", new_anime_review_path(@anime), class: "btn btn-danger" %>
           <%else%>
           <% @reviews.each do |review| %>
           <div class="reviews">
             <div class="star-rating" data-score= <%= review.rating %>> </div>
+            <p><%= review.user.email %></p>
             <p><%= review.comment %></p>
-        
           </div>
           <%end%>
           <%= will_paginate @reviews, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>
           <%end%>
         </div>
       </div>
+
+
     </div>
   </div>
   <% if current_user.try(:admin?) %>
@@ -140,6 +155,7 @@
 
 </div>
 </div>
+
 
 <%= render 'disqus' %>
 
@@ -154,5 +170,3 @@
     }
   });
 </script>
-
-
