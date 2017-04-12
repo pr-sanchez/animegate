@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409221610) do
+ActiveRecord::Schema.define(version: 20170412132200) do
 
   create_table "animes", force: :cascade do |t|
     t.string   "title"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170409221610) do
     t.string   "capture_content_type"
     t.integer  "capture_file_size"
     t.datetime "capture_updated_at"
+    t.string   "fecha"
   end
 
   create_table "comments", force: :cascade do |t|

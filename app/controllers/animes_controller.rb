@@ -15,7 +15,7 @@ class AnimesController < ApplicationController
   end
 
   def show
-    @reviews = Review.where(anime_id: @anime.id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
+    @reviews = Review.where(anime_id: @anime.id).order("created_at DESC").paginate(page: params[:page], per_page: 15)
     if @reviews.blank?
       @avg_review = 0
     else
