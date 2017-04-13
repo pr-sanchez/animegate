@@ -1,8 +1,8 @@
 <div class="container">
-    <div class="col-lg-11">
+  <div class="col-lg-11">
   <div class="panel panel-default show-anime">
     <div class="row">
-      <div class="col-sm-6 col-md-8">
+      <div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
         <%= image_tag @anime.image.url(:medium), class: "img-responsive" %>
           <div class="principal">
             <article>
@@ -30,7 +30,7 @@
               <strong class="color azul4">Estudio:</strong> <%= @anime.studio %><br>
               <strong class="color azul">Peso por capitulo:</strong><%= @anime.anime_size %><br>
               <strong class="color naranja">Tipo:</strong> <%= @anime.rating %><br>
-              <strong class="color verde2">Resolución:</strong> <%= @anime.ovas %><br>
+              <strong class="color verde2">Ovas:</strong> <%= @anime.ovas %><br>
               <strong class="color morado">Fansub:</strong> <%= @anime.fansub %><br>
               <strong class="color rojo">Contraseña:</strong> Sin contraseña :)<br>
               </p>
@@ -66,7 +66,8 @@
                <%end%>
              </div>
               </div>
-              <div class="col-md-4">
+
+              <div class="col-md-4 col-sm-6 col-lg-4 col-xs-12">
                 <div class="panel panel-default reviews-panel">
                   <h1 class="panel-header">Criticas
                     <% if user_signed_in? %>

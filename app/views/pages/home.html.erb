@@ -7,30 +7,24 @@
 
 -->
 <div class="container-fluid-full">
+<div class="row">
 
-  <div class="col-md-6 col-lg-9 col-sm-12">
-    <div class="main">
-      <div class="slides">
-        <div>
-        <%= image_tag "/assets/anime/slideshow/1.jpg", class: "img-responsive" %>
-        </div>
-      <div>
-      <%= image_tag "/assets/anime/slideshow/2.jpg", class: "img-responsive" %>
+  <div class="col-lg-9 col-md-9 col-xs-9 col-sm-9">
+    <div class="panel panel-default">
+      <div class="panel-header">
+        <h1 class="title">Anime Recientes</h1>
       </div>
-      <div>
-      <%= image_tag "/assets/anime/slideshow/3.jpg" %>
-      </div>
-      <div>
-      <%= image_tag "/assets/anime/slideshow/4.jpg" %>
+      <div class="panel-body">
+        <p class="body">
+          En construcción papu
+        </p>
       </div>
     </div>
-    </div>
-    </div>
-
-
+  </div>
 
 <% if user_signed_in? %>
-<div class="col-sm-12 col-lg-3 col-md-6 user-details">
+
+<div class="col-sm-3 col-lg-3 col-md-3 col-xs-3 user-details">
   <div class="user-image">
     <%= image_tag(current_user.avatar.url(:thumb), :class => "round-image-50 img-responsive" ) %>
   </div>
@@ -135,52 +129,18 @@
                           </span>
                           </span>
                           <div class='clear'></div>
-                          </div></div>
+                          </div>
+                        </div>
+
                           </div>
                           <div class='clear'></div>
                           </div>
                           <div class='clear'></div>
-                          </div>
-                          </div>
 
-                          </div>
 
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <%end%>
-<div class="row">
-<!-- CHAT-->
+                            <%end%>
+
+
 
 </div>
-
-
-
-
-<script>
-
-$(function(){
-$(".slides").slidesjs({
-  play: {
-    active: true,
-      // Activa el play y tambien los botones
-    effect: "slide",
-
-    interval: 3000,
-      // [number] Time spent on each slide in milliseconds.
-    auto: true,
-      // [boolean] Start playing the slideshow on load.
-    swap: true,
-      // [boolean] show/hide stop and play buttons
-    pauseOnHover: false,
-      // [boolean] pause a playing slideshow on hover
-    restartDelay: 2500
-      // [number] restart delay on inactive slideshow
-  }
-});
-});
-
-
-</script>
+</div>

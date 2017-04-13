@@ -20,7 +20,7 @@
 
   body{
   background: #000;
-  padding-top: 100px;
+  /*padding-top: 100px; porque es necesario para el menu fixed-top*/
   }
 
 
@@ -887,7 +887,7 @@ z-index: -1;
   position: fixed;
   left: 0;
   bottom: 0;
-  width:250px;
+  width:280px;
   z-index: -1;
 }
 
