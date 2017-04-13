@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-
-
 root 'pages#home'
 
 get "animes/anohana" => "animes#anohana"
@@ -30,4 +26,7 @@ get "news" => 'posts#index'
   	  resources :reviews, except: [:show, :index]
   end
 
+  devise_scope :user do
+     get '/users/sign_out' => 'devise/sessions#destroy'
+   end
 end
