@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+match '/users/',   to: 'users#index',   via: 'get'
+match '/perfil/:id',     to: 'users#show',       via: 'get' #para hacer amigable los users quita el users/ y redirecciona al user directamente
+#match '/users/:id',     to: 'users#show',       via: 'get'  #antes estaba asi pero me trajo conflictos al no saber redireccionar bien
+
+
 root 'pages#home'
 
 get "animes/anohana" => "animes#anohana"
@@ -17,7 +22,9 @@ get "news" => 'posts#index'
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users
+  devise_for :users, :path_prefix => '/d'
+  resources :users, :only =>[:show]
+
   resources :animes do
   	  collection do
   	  	get 'search'
@@ -27,6 +34,6 @@ get "news" => 'posts#index'
   end
 
   devise_scope :user do
-     get '/users/sign_out' => 'devise/sessions#destroy'
+     get '/d/users/sign_out' => 'devise/sessions#destroy'
    end
 end

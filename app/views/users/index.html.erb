@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="usuarios">
+        <h1> Usuarios</h1>
+        <% @users = User.all %>
+        <% @users.each do |user| %>
+          <%= link_to user.username, users_path(user.username)%><br>
+          <!--users_path todos los usuarios-->
+        <!--  <%= user.email %><br/>-->
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
