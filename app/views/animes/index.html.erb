@@ -10,14 +10,14 @@
 
 <div class="row">
   <% @animes.each do |anime| %>
-  <div class="col-sm-6 col-md-3">
+  <div class="col-sm-6 col-md-3 col-lg-3 col-xs-12">
     <div class="thumbnail">
 
       <%= link_to (image_tag anime.image.url(:medium), class: 'image'), anime %>
       <!--<div class="hover_brillo" style="text-align: right;"></div>-->
 
       <tr>
-    <p class="text-center titulo-anime"><strong><%= anime.title %></strong></p>
+          <p class="text-center titulo-anime"><strong><%= link_to anime.title, anime%></strong></p>
     <!--<td><%= link_to 'Ver', anime_path(anime) %></td>-->
      </tr>
     </div>
