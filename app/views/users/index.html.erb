@@ -6,8 +6,6 @@
         <% @users = User.all %>
         <% @users.each do |user| %>
           <%= link_to user.username, user_path(user.username)%><br>
-          <!--users_path todos los usuarios-->
-        <!--  <%= user.email %><br/>-->
         <% end %>
       </div>
     </div>
