@@ -19,6 +19,8 @@ get "news" => 'posts#index'
     resources :comments
   end
 
+  
+
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
