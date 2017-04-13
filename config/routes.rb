@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 match '/users/',   to: 'users#index',   via: 'get'
-match '/perfil/:id',     to: 'users#show',       via: 'get' #para hacer amigable los users quita el users/ y redirecciona al user directamente
+match '/users/:id',     to: 'users#show',       via: 'get' #para hacer amigable los users quita el users/ y redirecciona al user directamente
 #match '/users/:id',     to: 'users#show',       via: 'get'  #antes estaba asi pero me trajo conflictos al no saber redireccionar bien
 
 
