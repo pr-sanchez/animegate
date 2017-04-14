@@ -5,7 +5,7 @@
         <h1> Usuarios</h1>
         <% @users = User.all %>
         <% @users.each do |user| %>
-          <%= link_to user.username, users_path(user.username, @user)%><br>
+          <%= link_to user.username, users_path(user.username)%><br>
         <% end %>
       </div>
     </div>

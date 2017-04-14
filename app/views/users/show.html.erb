@@ -2,7 +2,21 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <h1>Perfil: <%= @user.username %></h1>
-      <p>Aqui tengo pensado listar las reviews y anime que le gusta, en construcción.</p>
+      <% @reviews = Review.all %>
+      <% @reviews.each do |review| %>
+        <div class="reviews">
+          <div class="star-rating" data-score= <%= review.rating %> ></div>
+          <p class="review-fecha">Fecha: <%= review.created_at.strftime("%d %b %Y") %></p>
+            <p class="review-username"><%= review.user.username %></p>
+            <p class="review-comment"><%= review.comment %></p>
+          </div>
+          <% end %>
+
+
     </div>
   </div>
 </div>
+<!--<% if @reviews.blank? %>
+  <h3>Discula, este usuario no ha escrito ninguna critica todavia.</h3>
+<%else%>
+  <% end %>-->

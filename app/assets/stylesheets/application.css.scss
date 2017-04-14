@@ -600,15 +600,20 @@ background-position: 0px -26px;
 
 .navbar-default{
 background-color: #22313F !important;
-font-family: 'Anton', sans-serif;
-font-size: 20px;
+font-family: 'Arial';
+font-size: 17px;
+margin-top: 20px;
+border-radius: 0px;
 }
 
 .navbar {
     border-bottom: 1px #fff solid rgba(0,0,0,0.9);
+    max-width: 1080px;
+    margin: auto;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
 color: #59ABE3;  /*Sets the text hover color on navbar*/
+background: #34495E;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >
@@ -931,4 +936,13 @@ z-index: -1;
 
 .image{
   width: 700px;
+}
+
+.color-gris{
+  color:#3498DB;
+  font-size: 20px;
+}
+.color-gris:hover{
+  color:#67809F;
+  cursor: pointer;
 }

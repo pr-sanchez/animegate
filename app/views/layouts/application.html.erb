@@ -46,43 +46,47 @@
 </div>
   <!-- SCM Music Player script end -->
 
-<div class="hidden-xs">
-  <div class="main">
-    <div class="slides">
-      <div>
-        <%= image_tag "/assets/anime/slideshow/5.png", class: "img-responsive" %>
-      </div>
-      <div>
-        <%= image_tag "/assets/anime/slideshow/2.jpg", class: "img-responsive" %>
-      </div>
-      <div>
-        <%= image_tag "/assets/anime/slideshow/3.jpg", class: "img-responsive" %>
-      </div>
-      <div>
-        <%= image_tag "/assets/anime/slideshow/4.jpg", class: "img-responsive" %>
-      </div>
-      <div>
-        <%= image_tag "/assets/anime/slideshow/1.jpg", class: "img-responsive" %>
+
+
+
+
+
+<div class="contenedor-slides">
+  <div class="container-fluid">
+    <div class="hidden-xs">
+      <div class="main">
+        <div class="slides">
+          <div>
+            <%= image_tag "/assets/anime/slideshow/5.png", class: "img-responsive" %>
+          </div>
+          <div>
+            <%= image_tag "/assets/anime/slideshow/3.jpg", class: "img-responsive" %>
+          </div>
+          <div>
+            <%= image_tag "/assets/anime/slideshow/10.jpg", class: "img-responsive" %>
+          </div>
+          <div>
+            <%= image_tag "/assets/anime/slideshow/1.jpg", class: "img-responsive" %>
+          </div>
+          <div>
+            <%= image_tag "/assets/anime/slideshow/4.jpg", class: "img-responsive" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-  <!--<%=image_tag "/assets/portada.png", :class => "portada img-responsive"%>-->
 
 
-
-
-  <%= render 'layouts/header' %>
-
-
-
+    <!--<%=image_tag "/assets/portada.png", :class => "portada img-responsive"%>-->
 
 
 
 <!--<div class="col-md-6 col-lg-9 col-sm-12">-->
+<%= render 'layouts/header' %>
 
-  <div class="container-fluid-full">
+  <div class="container contenedor-todo">
 	  <%= yield %>
   </div>
   <!--</div>-->

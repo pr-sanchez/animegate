@@ -1,3 +1,4 @@
+<div class="contenedor-menu">
 <nav class="navbar navbar-default " role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -54,14 +55,15 @@
             <li><%= link_to "Registrarse", new_user_registration_path, class: "active"%></li>
 
           <%end%>
-        </ul>
+        </ul><!--
               <%=  form_tag search_animes_path, method: :get, class: "navbar-form navbar-right", role: "search" do%>
             <p>
             <%= text_field_tag :search, params[:search], class: "form-control" %>
             <%= submit_tag "Buscar", name:nil, class: "btn btn-default" %>
-            </p>
+          </p>-->
 
         <%end%>
       </div>
     </div>
   </nav>
+</div>
