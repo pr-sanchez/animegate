@@ -306,10 +306,8 @@ div.img1 {
 
 
 .boton-paypal{
-  float: left;
-  background: rgba(0,0,0,0.8);
-  margin-top:50px;
-  border-radius: 10px;
+  margin-top:60px;
+  margin-bottom: 50px;
 }
 
 
@@ -705,7 +703,7 @@ background-color: #030033;
 }
 
 .show-anime{
-  border: 3px #22A7F0 solid;
+  border: 3px #446CB3 solid;
 }
 
 
@@ -885,7 +883,7 @@ position: fixed;
 right: 0;
 bottom: 0;
 width:320px;
-z-index: -1;
+z-index:-1;
 }
 
 .steins{
@@ -893,7 +891,7 @@ z-index: -1;
   left: 0;
   bottom: 0;
   width:280px;
-  z-index: -1;
+  z-index:-1;
 }
 
 
@@ -945,4 +943,8 @@ z-index: -1;
 .color-gris:hover{
   color:#67809F;
   cursor: pointer;
+}
+
+.w3-sidebar {
+  width: 350px;
 }

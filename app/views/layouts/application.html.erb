@@ -9,6 +9,88 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <div class="boton-sidebar hidden-xs hidden-sm">
+    <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+  </div>
+  <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+
+  <!-- Sidebar -->
+  <div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:4" id="mySidebar">
+    <button class="w3-bar-item w3-button" onclick="w3_close()">Cerrar x</button>
+    <br>
+    <!--<a href="#" class="w3-bar-item w3-button">Link 1</a>-->
+
+    <% if user_signed_in? %>
+    <hr>
+    <div class="text-center">
+    <h2>Cuenta</h2>
+    <li><%= current_user.username %></li>
+    </div>
+    <% else %>
+    <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <h2 class="text-center">Acceder</h2>
+      </div>
+        <div class="panel-body">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field form-group">
+          <%= f.label :correo %><br />
+          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        </div>
+
+        <div class="field form-group">
+          <%= f.label :contraseña %><br />
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field form-group">
+            <%= f.check_box :remember_me %>
+            <%= f.label :recuerdame %>
+          </div>
+        <% end -%>
+
+        <div class="actions">
+          <%= f.submit "Iniciar sesión", class: 'btn btn-lg btn-primary'  %>
+        </div>
+        <% end %>
+        </div>
+        <div class="panel-footer">
+        <%= render "devise/shared/links" %>
+        </div>
+    </div>
+    </div>
+    <%end%>
+
+
+            <div class="text-center boton-paypal">
+              <hr>
+              <h2>Donaciones</h2>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                  <input type="hidden" name="cmd" value="_s-xclick">
+                  <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHNwYJKoZIhvcNAQcEoIIHKDCCByQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCWvlEpPYECmGbMaO6SmTd95bRWcxTkjrafPySEAi/zE3EvZFNK0bppgZRSJGhJ7O4+zjvd4Sr2ZirQdvgQbTNfn6ZXPfDMCJkKbhQ1kNyh3i9uORIYt8zeapzKsZXS61DXK6x1tRaip1JFKWN3xG2FpTRpQ0IMa1X9/iiUMOasNDELMAkGBSsOAwIaBQAwgbQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI5kgJ5qDttHCAgZCSe1fo/axRinj0t2gy0CVtEu9JYiMvKXmFypmB0pTNYyucpq+zdLSfVGl4uNg4QZD08bj+HmIntCln9LtollVz5rJ2DFEkbpdMP9LWefs052r9QiNxv8b0d1Ds1c7yWu7k2Otnqf6UvP2hsY3PIHv0RXc15I60H1hbhuT6TCLbq2Hr9bmbgW4BDcBTLmdXgLagggOHMIIDgzCCAuygAwIBAgIBADANBgkqhkiG9w0BAQUFADCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wHhcNMDQwMjEzMTAxMzE1WhcNMzUwMjEzMTAxMzE1WjCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMFHTt38RMxLXJyO2SmS+Ndl72T7oKJ4u4uw+6awntALWh03PewmIJuzbALScsTS4sZoS1fKciBGoh11gIfHzylvkdNe/hJl66/RGqrj5rFb08sAABNTzDTiqqNpJeBsYs/c2aiGozptX2RlnBktH+SUNpAajW724Nv2Wvhif6sFAgMBAAGjge4wgeswHQYDVR0OBBYEFJaffLvGbxe9WT9S1wob7BDWZJRrMIG7BgNVHSMEgbMwgbCAFJaffLvGbxe9WT9S1wob7BDWZJRroYGUpIGRMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAIFfOlaagFrl71+jq6OKidbWFSE+Q4FqROvdgIONth+8kSK//Y/4ihuE4Ymvzn5ceE3S/iBSQQMjyvb+s2TWbQYDwcp129OPIbD9epdr4tJOUNiSojw7BHwYRiPh58S1xGlFgHFXwrEBb3dgNbMUa+u4qectsMAXpVHnD9wIyfmHMYIBmjCCAZYCAQEwgZQwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tAgEAMAkGBSsOAwIaBQCgXTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0xNzAxMjQyMjQ4MTBaMCMGCSqGSIb3DQEJBDEWBBT1cvVwXgSkKFY2ovttuKwUlQqt5DANBgkqhkiG9w0BAQEFAASBgKJ6asUmelYYYc93jxGSroogxgqsvzuOaEKRaly5B7yDyWLE6UVhAxCWEnh949W8an7/9Pbe0nYUPk2nvcmTcVYWynsNf5eUYCh+oyLXIk3eHZG+RwC77b4Zb6VaX6Msv7VXit6bjkR4ZhklwujCM+hf8yyTCRkTppakgu+VeyrP-----END PKCS7-----
+            ">
+                  <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </div>
+
+
+            <hr>
+          <div class="text-center">
+            <h2>Chat</h2>
+            <script id="cid0020000110059859320" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">{"handle":"animegatewebcindario","arch":"js","styles":{"a":"0084ef","b":100,"c":"FFFFFF","d":"FFFFFF","k":"0084ef","l":"0084ef","m":"0084ef","n":"FFFFFF","p":"9.45","q":"0084ef","r":100,"surl":0,"cnrs":"0.35","fwtickm":1}}</script>
+          </div>
+
+  </div>
+
+
+
+
+
   <div class="letras">
     <%= render 'layouts/flash_messages' %>
   </div>
@@ -49,59 +131,56 @@
 
 
 
+  <!-- Page content -->
 
 
-<div class="contenedor-slides">
-  <div class="container-fluid">
-    <div class="hidden-xs">
-      <div class="main">
-        <div class="slides">
-          <div>
-            <%= image_tag "/assets/anime/slideshow/5.png", class: "img-responsive" %>
-          </div>
-          <div>
-            <%= image_tag "/assets/anime/slideshow/3.jpg", class: "img-responsive" %>
-          </div>
-          <div>
-            <%= image_tag "/assets/anime/slideshow/10.jpg", class: "img-responsive" %>
-          </div>
-          <div>
-            <%= image_tag "/assets/anime/slideshow/1.jpg", class: "img-responsive" %>
-          </div>
-          <div>
-            <%= image_tag "/assets/anime/slideshow/4.jpg", class: "img-responsive" %>
+  <div class="vacio-por-ahora-contenedor-de-todo">
+    <div class="contenedor-slides2">
+    <div class="container">
+    <div class="contenedor-slides">
+<!--
+      <div class="container-fluid">
+        <div class="hidden-xs">
+          <div class="main">
+            <div class="slides">
+              <div>
+                <%= image_tag "/assets/anime/slideshow/portada2.jpg", class: "img-responsive" %>
+              </div>
+              <div>
+                <%= image_tag "/assets/anime/slideshow/portada.jpg", class: "img-responsive" %>
+              </div>
+              <div>
+                <%= image_tag "/assets/anime/slideshow/3.jpg", class: "img-responsive" %>
+              </div>
+              <div>
+                <%= image_tag "/assets/anime/slideshow/1.jpg", class: "img-responsive" %>
+              </div>
+              <div>
+                <%= image_tag "/assets/anime/slideshow/4.jpg", class: "img-responsive" %>
+              </div>
+            </div>
           </div>
         </div>
+      </div>-->
+    </div>
+    </div>
+    </div>
+
+
+    <div class="contenedor-slides2">
+      <div class="container">
+      <%= render 'layouts/header' %>
       </div>
     </div>
+
+
+      <div class="container contenedor-todo">
+    	  <%= yield %>
+      </div>
+
+
+
   </div>
-</div>
-
-
-
-    <!--<%=image_tag "/assets/portada.png", :class => "portada img-responsive"%>-->
-
-
-
-<!--<div class="col-md-6 col-lg-9 col-sm-12">-->
-<%= render 'layouts/header' %>
-
-  <div class="container contenedor-todo">
-	  <%= yield %>
-  </div>
-  <!--</div>-->
-
-<!--
-    <div class="boton-paypal">
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_s-xclick">
-          <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-    ">
-          <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-          <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-        </form>
-    </div>-->
-
 
 
 
@@ -126,28 +205,17 @@ path: '/assets/'
 <!--Ley de cookies-->
 
 
-
+<!-- JS to open and close sidebar with overlay effect -->
 <script>
-$(function(){
-$(".slides").slidesjs({
-  play: {
-    active: false,
-      // Activa el play y tambien los botones
-    effect: "slide",
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
 
-    interval: 11000,
-      // [number] Time spent on each slide in milliseconds.
-    auto: true,
-      // [boolean] Start playing the slideshow on load.
-    swap: true,
-      // [boolean] show/hide stop and play buttons
-    pauseOnHover: true,
-      // [boolean] pause a playing slideshow on hover
-    restartDelay: 2500
-      // [number] restart delay on inactive slideshow
-  }
-});
-});
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
 </script>
 
 </body>
