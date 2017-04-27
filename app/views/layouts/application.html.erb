@@ -72,13 +72,7 @@
     </div>
     </div>
     <%end%>
-<hr>
-    <div class="text-center">
-    <h2>Usuarios Online</h2>
-      <p>En construcción papu</p>
-        <% User.user_recent.each do |user| %>
-        <% end %>
-     </div>
+
             <div class="text-center boton-paypal">
               <hr>
               <h2>Donaciones</h2>
@@ -99,6 +93,14 @@
             <h2>Chat</h2>
             <script id="cid0020000110059859320" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">{"handle":"animegatewebcindario","arch":"js","styles":{"a":"0084ef","b":100,"c":"FFFFFF","d":"FFFFFF","k":"0084ef","l":"0084ef","m":"0084ef","n":"FFFFFF","p":"9.45","q":"0084ef","r":100,"surl":0,"cnrs":"0.35","fwtickm":1}}</script>
           </div>
+
+          <hr>
+              <div class="text-center">
+              <h2>Usuarios Online</h2>
+                <p>En construcción papu</p>
+                  <% User.user_recent.each do |user| %>
+                  <% end %>
+               </div>
 
   </div>
 
