@@ -13,10 +13,9 @@
   <div class="col-sm-6 col-md-3 col-lg-3 col-xs-6">
     <div class="thumbnail">
       <%= link_to (image_tag anime.image.url(:medium), class: 'img-responsive'), anime %>
-      <!--<div class="hover_brillo" style="text-align: right;"></div>-->
           <br>
-          <p class="text-center titulo-uploader"><strong>Uploader: <%= link_to anime.uploader, anime%> [Tipo: <%= link_to anime.rating, anime%>]</strong></p>
-          <p class="text-center titulo-anime2"><strong><%= link_to anime.title, anime%></strong></p>
+          <p class="text-center titulo-uploader"><strong>[<%= link_to anime.uploader, anime%>] [<%= link_to anime.rating, anime%>]</strong></p>
+          <p class="text-center titulo-anime2"><strong><%= link_to anime.short_title, anime%></strong></p>
           <p class="text-center resolucion-anime2"><strong>[<%= link_to anime.resolution, anime%>][<%= link_to anime.anime_episodes, anime%>]</strong></p>
           <p class="text-center descripcion-anime2"><strong><%= link_to anime.description, anime%></strong></p>
     <!--<td><%= link_to 'Ver', anime_path(anime) %></td>-->

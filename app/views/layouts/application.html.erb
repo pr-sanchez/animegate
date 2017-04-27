@@ -29,9 +29,14 @@
     <hr>
     <div class="text-center">
     <h2>Cuenta</h2>
-    <li><%= current_user.username %></li>
+    <div class="user-image">
+      <%= image_tag(current_user.avatar.url(:thumb), :class => "round-image-50 img-responsive" ) %>
+    </div>
+    <h3><%= current_user.username %></h3>
+    <h4><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></h4>
     </div>
     <% else %>
+
     <div class="col-lg-12">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -67,18 +72,24 @@
     </div>
     </div>
     <%end%>
-
-
+<hr>
+    <div class="text-center">
+    <h2>Usuarios Online</h2>
+      <p>En construcción papu</p>
+        <% User.user_recent.each do |user| %>
+        <% end %>
+     </div>
             <div class="text-center boton-paypal">
               <hr>
               <h2>Donaciones</h2>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                  <input type="hidden" name="cmd" value="_s-xclick">
-                  <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-            ">
-                  <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                  <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-                </form>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="http://animegate.herokuapp.com/assets/missingag.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+</form>
+
             </div>
 
 
@@ -192,12 +203,15 @@
 
 
 <!--Ley de cookies-->
+<div class="hidden-xs hidden-sm">
 <div class="cookiesms" id="cookie1">
 Esta web utiliza cookies, si gustas puedes ver nuestra política de <%= link_to 'Cookies', cookies_path %>,
 si continuas navegando estás aceptándola.
   <button onclick="controlcookies()" class="btn btn-info">Aceptar</button>
     <div  class="cookies2" onmouseover="document.getElementById('cookie1').style.bottom = '0px';">Política de cookies + </div>
 </div>
+</div>
+
 
 <script>
 if (localStorage.controlcookie>0){

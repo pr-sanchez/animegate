@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, #:confirmable,
-         :registerable, :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => {email: true, login: false}
+  :registerable, :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => {email: true, login: false}
 
 
 
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
 
   has_attached_file :avatar,
-  :default_url => "missing.png",
+  :default_url => "missingag.png",
   :styles => { :large =>"500x500>", :medium => "300x300>", :thumb => "50x50>" }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
@@ -31,4 +31,9 @@ validates :username,
     :case_sensitive => false
   } #
 validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+
+def self.user_recent
+  where("last_seen <= ?", 30.minutes.ago)
+end
+
 end

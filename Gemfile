@@ -30,7 +30,6 @@ gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem "non-stupid-digest-assets"
 
 
-
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'

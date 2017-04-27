@@ -6,4 +6,6 @@ class UsersController < ApplicationController
   @user_reviews = Review.find_by(user_id: params[:user_id])
   end
 
+
+
 end

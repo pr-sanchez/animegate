@@ -144,10 +144,12 @@ a{
             margin: 1em 0 0 0;
             font-size: 0.7em;
             text-transform: uppercase;
+
           }
           .comment_body {
             font-size: 1.5em;
             margin: 0.2em 0 0 0;
+
           }
           .comment_time {
             margin-top: 1.2em;
@@ -195,6 +197,7 @@ a{
   }
   input[type="text"], input[type="email"], input[type="password"], textarea {
     width: 90%;
+    color: #000 !important;
     border: 1px solid #d6dce0;
     border-radius: .35em;
     margin-top: 10px;
@@ -203,9 +206,12 @@ a{
   }
   input[type="text"] {
     height: 50px;
+    color: #000 !important;
   }
   textarea {
     min-height: 180px;
+    color: #000 !important;
+
   }
   input[type="submit"] {
     outline: none;
@@ -498,7 +504,7 @@ color:#fff;
 .principal article p {
   margin-bottom: 5px;
   line-height:24px;
-    font-family: arial;
+  font-family: arial;
   z-index: 1;
 
 }
@@ -507,10 +513,18 @@ color:#fff;
 
 
 .principal article .fecha {
-color:#A3A3A3;
+color:#fff;
+background: #1E8BC3;
+float: right;
+padding:5px;
+margin-right: -20px;
+font-weight: bold;
+font-size: 15px;
 z-index: 1;
 }
-
+.principal article .fecha:hover{
+  cursor: pointer;
+}
    article p a.mega{
     position: relative;
 top: 30px;

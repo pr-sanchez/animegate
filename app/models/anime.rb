@@ -9,5 +9,4 @@ class Anime < ActiveRecord::Base
   	 has_attached_file :capture, styles: { medium: "400x600#"}
   	 validates_attachment_content_type :capture, content_type: /\Aimage\/.*\z/
 
-
 end

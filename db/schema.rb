@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412132200) do
+ActiveRecord::Schema.define(version: 20170427155520) do
 
   create_table "animes", force: :cascade do |t|
     t.string   "title"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170412132200) do
     t.integer  "capture_file_size"
     t.datetime "capture_updated_at"
     t.string   "fecha"
+    t.string   "short_title"
+    t.string   "anime_date_home"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -89,6 +91,7 @@ ActiveRecord::Schema.define(version: 20170412132200) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "username"
+    t.datetime "last_seen"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true

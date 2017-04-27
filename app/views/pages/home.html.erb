@@ -11,135 +11,33 @@
   <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
     <div class="panel panel-default">
       <div class="panel-header">
-        <h1 class="title">Anime Recientes</h1>
+        <h1 class="title text-center">Anime Recientes</h1>
+        <h3>La página sigue en construcción, te vas a enojar papu?</h3>
       </div>
       <div class="panel-body">
-        <p class="body">
-          En construcción papu
-        </p>
+        <div class="body">
+          <div class="text-center">
+            <div class="row">
+              <% @animes.each do |anime| %>
+              <div class="col-lg-12">
+                  <figure class="imghvr-blur img_home"><div <%= link_to (image_tag anime.image.url(:medium), class: 'img-responsive'), anime %> </div>
+                    <figcaption>
+                      <p class="text-center titulo_anime_home"><strong><%= link_to anime.short_title, anime%></strong></p>
+                      <p class="text-center uploader_anime_home"><strong><%= link_to anime.uploader, anime%></strong></p>
+                      <p class="text-center episodes_anime_home"><strong><%= link_to anime.anime_episodes, anime%></strong></p>
+                    </figcaption>
+                    </figure>
+                      <p class="text-center description_anime_home"><strong>[<%= link_to anime.anime_date_home, anime%>]</strong></p>
+                      <p class="text-center description_anime_home"><strong>[<%= link_to anime.resolution, anime%>]</strong></p>
+                      <p class="text-center description_anime_home"><strong><%= link_to anime.description, anime%></strong></p>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+          <%= will_paginate @animes, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>
+        </div>
+
+        </div>
       </div>
     </div>
   </div>
-<!--
-<% if user_signed_in? %>
-
-<div class="col-sm-6 col-lg-3 col-md-3 col-xs-12 user-details">
-  <div class="user-image">
-    <%= image_tag(current_user.avatar.url(:thumb), :class => "round-image-50 img-responsive" ) %>
-  </div>
-  <div class="user-info-block">
-  <div class="user-heading">
-    <h2> <%= current_user.username %></h2>
-    <h4><span class="help-block">Animegate Member</span><h2>
-  </div>
-    <ul class="navigation">
-    <li class="active">
-      <a data-toggle="tab" href="#information">
-        <span class="glyphicon glyphicon-user"></span>
-      </a>
-    </li>
-     <li>
-       <a data-toggle="tab" href="#settings">
-         <span class="glyphicon glyphicon-cog"></span>
-       </a>
-     </li>
-                  <li>
-                      <a data-toggle="tab" href="#email">
-                          <span class="glyphicon glyphicon-envelope"></span>
-                      </a>
-                  </li>
-                  <li>
-                      <a data-toggle="tab" href="#events">
-                          <span class="glyphicon glyphicon-calendar"></span>
-                      </a>
-                  </li>
-                  <li>
-                      <a data-toggle="tab" href="#chat">
-                          <span class="glyphicon glyphicon-globe"></span>
-                      </a>
-                  </li>
-              </ul>
-              <div class="user-body">
-                  <div class="tab-content">
-                      <div id="information" class="tab-pane active">
-                          <h4 class="subtitulos text-center">Cuenta</h4>
-                          <hr class="style1">
-                        <h4 class="subtitulos">Correo: <%= current_user.email %></h4>
-                        <h4 class="subtitulos">Username: <%= current_user.username %></h4>
-                        <h3>Pronto mejorare esta caracteristica no se preocupen</h3>
-
-                      </div>
-                      <div id="settings" class="tab-pane">
-                          <h4 class="subtitulos text-center">Opciones</h4>
-                          <hr class="style1">
-
-                          <%= link_to "Cuenta", edit_user_registration_path, :class => "subtitulos" %><br>
-                          <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => "subtitulos"%>
-                      </div>
-                      <div id="email" class="tab-pane">
-                          <h4 class="subtitulos text-center">Contacto</h4>
-                          <hr class="style1">
-
-                          <p>Comunicarse con un administrador</p>
-                      </div>
-                      <div id="events" class="tab-pane">
-                          <h4 class="subtitulos text-center">Eventos</h4>
-                          <hr class="style1">
-
-                      </div>
-                      <div id="chat" class="tab-pane">
-                          <h4 class="subtitulos text-center">Chat</h4>
-                          <hr class="style1">
-
-                          <div id="hcr">
-                            <div class="hcrtab" onclick="showHidehcr()"> </div>
-                            <div class="hcrcontent">
-
-                          <script id="cid0020000110059859320" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">{"handle":"animegatewebcindario","arch":"js","styles":{"a":"0084ef","b":100,"c":"FFFFFF","d":"FFFFFF","k":"0084ef","l":"0084ef","m":"0084ef","n":"FFFFFF","p":"9.45","q":"0084ef","r":100,"surl":0,"cnrs":"0.35","fwtickm":1}}</script>
-
-                          <br>
-                          <div class="hc-credit">
-                          <span style="float:left">
-                          </span>
-                          <span style="float:right">
-                          <a href="javascript:showHidehcr()">
-                          <button class="myButton2">Cerrar</button>
-                          </a>
-                          </span>
-                          <span style="float:left">
-                          <a href="javascript:showHidehcr()">
-                          <button class="myButton2">Abrir</button>
-                          </a>
-                          </span>
-                          </div>
-                          </div>
-                          </div>
-                          <script type="text/javascript">
-                          var hcr = document.getElementById("hcr");
-                          hcr.style.right = (30-hcr.offsetWidth).toString() + "px";
-                          </script>
-                          </div>
-                          <div class='clear'></div>
-                          <span class='widget-item-control'>
-                          <span class='item-control blog-admin'>
-                          <a class='quickedit' href='//www.decopost.info.com/rearrange?blogID=6756021128688737735&widgetType=HTML&widgetId=HTML7&action=editWidget&sectionId=sidebar' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML7"));' target='configHTML7' title='Editar'>
-
-                          </a>
-                          </span>
-                          </span>
-                          <div class='clear'></div>
-                          </div>
-                        </div>
-
-                          </div>
-                          <div class='clear'></div>
-                          </div>
-                          <div class='clear'></div>
-
-
-                            <%end%>
-
-
-
-</div>
-</div>-->

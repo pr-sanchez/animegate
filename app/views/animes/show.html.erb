@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
         <%= image_tag @anime.image.url(:medium), class: "img-responsive" %>
-          <div class="principal">
+          <div class="principal text-center">
             <article>
               <h2>Votos</h2>
               <div class="star-rating" data-score= <%= @avg_review %> ></div>
@@ -17,7 +17,7 @@
             <article>
               <h2 class="titulo">Ficha tecnica</h2>
               <p class="fecha"><%= @anime.created_at.strftime("%d %b. %Y") %></p>
-              <p ALIGN="left" style="font-size: 16pt"><br>
+              <p ALIGN="center" style="font-size: 16pt"><br>
               <strong class="color-gris">Nombre Original:</strong> <%= @anime.title %><br>
               <strong class="color-gris">Uploader:</strong> <%= @anime.uploader %><br>
               <strong class="color-gris">Género:</strong> <%= @anime.genre %><br>

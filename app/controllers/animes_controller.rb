@@ -70,7 +70,7 @@ class AnimesController < ApplicationController
     end
 
     def anime_params
-      params.require(:anime).permit(:title, :description, :anime_size, :studio, :rating, :fansub, :language, :subtitles, :ovas, :resolution, :file_format, :anime_episodes, :server, :uploader, :year, :genre, :image, :capture)
+      params.require(:anime).permit(:title, :description, :anime_size, :studio, :rating, :fansub, :language, :subtitles, :ovas, :resolution, :file_format, :anime_episodes, :server, :uploader, :year, :genre, :image, :capture, :short_title, :anime_date_home)
     end
 
 
