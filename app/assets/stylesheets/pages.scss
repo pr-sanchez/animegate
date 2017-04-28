@@ -13,11 +13,20 @@
 
  */
 
+
+ .title-anime{
+   font-family: 'Permanent Marker', cursive;
+ }
+ .title-anime:hover{
+   color:#446CB3;
+   cursor: pointer;
+ }
 .img_home{
   border-radius: 1000px;
+  position: relative;
   border: #000 2px solid;
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
 }
 
 .titulo_anime_home{
@@ -26,21 +35,30 @@
   font-family: 'arial';
   font-size: 30px;
   font-weight: bold;
-  color:#fff !important;
+  color:#000 !important;
 }
-.uploader_anime_home{
+
+.titulo_anime_home-figure{
   position: relative;
-  margin-top: 60px;
+  margin-top: 20px;
   font-family: 'arial';
   font-size: 25px;
   font-weight: bold;
   color:#fff !important;
 }
-.episodes_anime_home{
+.uploader_anime_home-figure{
+  position: relative;
+  margin-top: 60px;
+  font-family: 'arial';
+  font-size: 20px;
+  font-weight: bold;
+  color:#fff !important;
+}
+.episodes_anime_home-figure{
   position: relative;
   margin-top: 100px;
   font-family: 'arial';
-  font-size: 25px;
+  font-size: 15px;
   font-weight: bold;
   color:#fff !important;
 }
