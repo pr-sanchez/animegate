@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427155520) do
+ActiveRecord::Schema.define(version: 20170428154827) do
 
   create_table "animes", force: :cascade do |t|
     t.string   "title"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20170427155520) do
     t.string   "uploader"
     t.string   "year"
     t.string   "genre"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 20170427155520) do
     t.string   "fecha"
     t.string   "short_title"
     t.string   "anime_date_home"
+    t.string   "background_file_name"
+    t.string   "background_content_type"
+    t.integer  "background_file_size"
+    t.datetime "background_updated_at"
   end
 
   create_table "comments", force: :cascade do |t|

@@ -1,22 +1,18 @@
+<%= image_tag @anime.background.url(:large), :alt =>(alt), class: "show-anime-body"%>
 <div class="container">
-  <div class="col-lg-11">
-  <div class="panel panel-default show-anime">
+  <div class="col-lg-12">
+  <div class="show-anime">
     <div class="row">
       <div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
-        <%= image_tag @anime.image.url(:medium), class: "img-responsive" %>
-          <div class="principal text-center">
-            <article>
-              <h2>Votos</h2>
-              <div class="star-rating" data-score= <%= @avg_review %> ></div>
-              <p> <%="#{@reviews.length} Votos" %></p>
-            </article>
+      <!--  <%= image_tag @anime.image.url(:medium), class: "img-responsive" %>-->
+          <div class="principal">
             <article>
               <h2 class="titulo">Sinopsis</h2>
+              <p class="fecha"><%= @anime.created_at.strftime("%d %b. %Y") %></p><br><br>
               <p style="line-height: 2em; font-size: 15pt"><%= @anime.description %></p>
             </article>
             <article>
-              <h2 class="titulo">Ficha tecnica</h2>
-              <p class="fecha"><%= @anime.created_at.strftime("%d %b. %Y") %></p>
+              <h2 class="titulo text-center">Ficha tecnica</h2>
               <p ALIGN="center" style="font-size: 16pt"><br>
               <strong class="color-gris">Nombre Original:</strong> <%= @anime.title %><br>
               <strong class="color-gris">Uploader:</strong> <%= @anime.uploader %><br>
@@ -68,8 +64,13 @@
               </div>
 
               <div class="col-md-4 col-sm-6 col-lg-4 col-xs-12">
-                <div class="panel panel-default reviews-panel">
-                  <h1 class="panel-header">Criticas
+                <div class="votos">
+                  <h2 class="text-center">Votos</h2>
+                  <div class="star-rating text-center" data-score= <%= @avg_review %> ></div>
+                  <p> <%="#{@reviews.length} Votos" %></p>
+                </div>
+                <div class="reviews-panel">
+                  <h1 class="review-header">Criticas
                     <% if user_signed_in? %>
                       <%= link_to "Escribe una opinión", new_anime_review_path(@anime), class: "btn btn-success" %>
                     <% else %>
@@ -80,7 +81,7 @@
                     <br>
                       <hr>
                       <% if @reviews.blank? %>
-                        <h3>¡Se el primero en opinar!</h3><br>
+                        <h3 style="color:#fff;">¡Se el primero en opinar!</h3><br>
                           <%= link_to "Escribe tu opinión", new_anime_review_path(@anime), class: "btn btn-danger" %>
                       <%else%>
                         <% @reviews.each do |review| %>
@@ -89,7 +90,6 @@
                             <p class="review-fecha">Fecha: <%= review.created_at.strftime("%d %b %Y") %></p>
                               <p class="review-username"><%= review.user.username %></p>
                               <p class="review-comment"><%= review.comment %></p>
-
                             </div>
                       <%end%>
                       <%= will_paginate @reviews, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>
@@ -102,10 +102,12 @@
   </div>
 </div>
 
+<!--
 <div class="hidden-xs">
   <%=image_tag "/assets/rory2.png", :class => "rory"%>
   <%=image_tag "/assets/steins.png", :class => "steins"%>
 </div>
+-->
 
 
 
