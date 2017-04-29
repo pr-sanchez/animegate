@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+
+
+resources :questions do
+  resources :answers
+end
+
+
 match '/users/',   to: 'users#index',   via: 'get'
 match '/users/:id',     to: 'users#show',       via: 'get' #para hacer amigable los users quita el users/ y redirecciona al user directamente
 #match '/users/:id',     to: 'users#show',       via: 'get'  #antes estaba asi pero me trajo conflictos al no saber redireccionar bien
@@ -7,6 +14,7 @@ match '/users/:id',     to: 'users#show',       via: 'get' #para hacer amigable 
 
 root 'pages#home'
 
+get "forum" => 'forum#index'
 get "animes/anohana" => "animes#anohana"
 get 'cookies' => 'pages#cookies' #asi se redirecciona otra ruta de un metodo que esta dentro de un controlador, no como el de abajo que comente que es con metodo index controllador cookies, aqui el controlador es pages y el metodo es cookies
 get "animes/2" => "animes#2"

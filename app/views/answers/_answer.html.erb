@@ -1,0 +1,7 @@
+<p>
+  <%= answer.user.username %>
+  <%= answer.content %>
+  <% if can? :destroy, answer%>
+  <%= link_to "Borrar", question_answer_path(answer.question, answer), method: :delete %>
+  <% end %>
+</p>

@@ -52,14 +52,20 @@
                      <% end %>
                    </div>
                </article>
-               <% if current_user.try(:admin?) %>
-                 <article>
-                   <h2 class="titulo">Configuración:</h2>
+
+                <% if current_user.try(:admin?) || current_user.try(:moderator?) || current_user.try(:uploader?)  %>
+               <article>
+                 <h2 class="titulo">Configuración:</h2>
                      <%= link_to 'Atras', animes_path, class: "btn btn-info" %> |
+                     <% if can? :update, @anime%>
+
                      <%= link_to 'Editar', edit_anime_path(@anime), class: "btn btn-success" %> |
+                     <% end %>
+                       <% if can? :destroy, @anime%>
                      <%= link_to 'Borrar', anime_path(@anime), method: :delete, class: "btn btn-danger", data: {confirm: '¿Estas seguro que quieres borrar este anime?'} %>
-                   </article>
-               <%end%>
+                      <% end %>
+                    </article>
+                    <% end %>
              </div>
               </div>
 

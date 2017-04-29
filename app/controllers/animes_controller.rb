@@ -28,6 +28,7 @@ class AnimesController < ApplicationController
   end
 
   def edit
+    authorize! :update, @anime
   end
 
   def create
@@ -35,7 +36,7 @@ class AnimesController < ApplicationController
 
     respond_to do |format|
       if @anime.save
-        format.html { redirect_to @anime, notice: 'El anime se ha creado exitosamente!.' }
+        format.html { redirect_to animes_path, notice: 'El anime se ha creado exitosamente!.' }
         format.json { render :show, status: :created, location: @anime }
       else
         format.html { render :new }

@@ -17,7 +17,7 @@
 
 
   <!-- Sidebar -->
-  <div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:4" id="mySidebar">
+  <div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:9" id="mySidebar">
     <br>
     <div class="text-center">
       <button type="button" class="btn btn-default" onclick="w3_close()">Cerrar</button>
@@ -30,7 +30,22 @@
     <div class="text-center">
     <h2>Cuenta</h2>
     <div class="user-image">
+      <% if current_user.try(:admin?) %>
+      <%= image_tag("rory2.png", :class => "round-image-50 img-responsive" )%>
+      <% end %>
+
+      <% if current_user.try(:moderator?) %>
+      <%= image_tag("rory2.png", :class => "round-image-50 img-responsive" )%>
+      <% end %>
+
+      <% if current_user.try(:uploader?) %>
+      <%= image_tag("rory2.png", :class => "round-image-50 img-responsive" )%>
+      <% end %>
+
+      <% unless current_user.try(:admin?) || current_user.try(:moderator?)  || current_user.try(:uploader?)  %>
       <%= image_tag(current_user.avatar.url(:thumb), :class => "round-image-50 img-responsive" ) %>
+      <%end %>
+      
     </div>
     <h3><%= current_user.username %></h3>
     <h4><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></h4>

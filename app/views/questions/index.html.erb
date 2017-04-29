@@ -1,0 +1,56 @@
+<div class="container">
+  <%= flash[:alert]%>
+  <div class="panel panel-default">
+    <div class="panel-header">
+      <h3> Forum </h3>
+    </div>
+    <div class="panel-body">
+
+      <%= link_to 'Nueva discución', new_question_path %>
+      <br>
+      <br>
+
+      <h1>Posts</h1>
+
+      <% @questions.each do |question| %>
+      <div style="border: 1px solid black; background:#add8e6;">
+        <h3>Post#: <%= question.id %> </h3>
+        <h3>Asunto: <%= question.title %> </h3>
+        <p><b>Descripción:</b> <%= question.content %> </p>
+        <%= time_ago_in_words(question.created_at) %> ago por <%= question.user.username %><br>
+
+        <% if can? :show, question%>
+        <%= link_to 'Ver', question %>|
+        <%end%>
+
+        <% if can? :update, question%> <!--ability model, action and current object-->
+        <%= link_to 'Editar', edit_question_path(question) %> |
+        <%end%>
+
+        <% if can? :destroy, question%>
+        <%= button_to 'Borrar', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%end%>
+
+        <% if question.answers.any? %>
+
+        <h4> Respuestas </h4>
+
+        <%= render question.answers %>
+        <% end %>
+
+        <hr>
+        <p> Responder </p>
+        <%= form_for([question, question.answers.build]) do |f| %>
+        <%= f.text_area :content %><br>
+        <%= submit_tag "Enviar" %>
+        <% end %>
+
+      </div>
+
+      <br>
+      <br>
+      <% end %>
+    </div>
+  </div>
+  <%= will_paginate @questions, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>
+</div>

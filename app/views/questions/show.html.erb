@@ -1,0 +1,17 @@
+<div style="border: 1px solid black; background:#add8e6;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asunto:</strong>
+  <%= @question.title %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @question.content %>
+</p>
+
+<%= link_to 'Editar', edit_question_path(@question) %> |
+<%= link_to 'Atras', questions_path %>
+
+</div>

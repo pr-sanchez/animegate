@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-header">
+      <h1>Foro</h1>
+    </div>
+    <div class="panel-body">
+
+    <% if user_signed_in? %>
+    Bienvenido, <%= current_user.username %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+    <%= link_to "Necesitas iniciar sesión para ver el foto", new_user_session_path, class:"btn btn-default" %>
+    <% end %>
+
+    </div>
+  </div>
+</div>

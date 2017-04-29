@@ -5,7 +5,7 @@
   </div>
 
   <div class="panel-body">
-<% if current_user.try(:admin?) %>
+<% if current_user.try(:admin?) || current_user.try(:moderator?) || current_user.try(:uploader?) %>
 
 
 <%= render 'form' %>

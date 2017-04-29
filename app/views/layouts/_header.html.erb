@@ -23,6 +23,7 @@
             <li><%= link_to 'Inicio', root_path %></li>
             <li><%= link_to 'Noticias', news_path %></li>
             <li><%= link_to 'Anime', animes_path %></li>
+            <li><%= link_to 'Foro', forum_path %></li>
             <!--<li><%= link_to 'Cookies', cookies_path %></li>-->
             <li><%= link_to "Nuevo anime", new_anime_path, class: "active "%></li>
             <li class="btn-group" role="group">
@@ -38,11 +39,21 @@
                 <li><%= link_to "Terminar sesión", destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
+         <% elsif current_user.try(:moderator?) || current_user.try(:uploader?)  %>
+         <li><%= link_to 'Inicio', root_path %></li>
+         <li><%= link_to 'Noticias', news_path %></li>
+         <li><%= link_to 'Anime', animes_path %></li>
+         <li><%= link_to 'Foro', forum_path %></li>
+         <!--<li><%= link_to 'Cookies', cookies_path %></li>-->
+         <li><%= link_to "Nuevo anime", new_anime_path, class: "active "%></li>
+         <li><%= link_to "Cuenta", edit_user_registration_path %></li>
+         <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
           <% elsif user_signed_in? %>
         <!--<li><a href="#"><%= current_user.email %></a></li>-->
             <li><%= link_to 'Inicio', root_path %></li>
             <li><%= link_to 'Noticias', news_path %></li>
             <li><%= link_to 'Anime', animes_path %></li>
+            <li><%= link_to 'Foro', forum_path %></li>
           <!--  <li><%= link_to 'Cookies', cookies_path %></li>-->
            <li><%= link_to "Cuenta", edit_user_registration_path %></li>
            <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
@@ -50,6 +61,8 @@
             <li><%= link_to 'Inicio', root_path %></li>
             <li><%= link_to 'Noticias', news_path %></li>
             <li><%= link_to 'Anime', animes_path %></li>
+            <li><%= link_to 'Foro', forum_path %></li>
+
           <!--  <li><%= link_to 'Cookies', cookies_path %></li>-->
             <li><%= link_to "Iniciar sesión", new_user_session_path, class: "active"%></li>
             <li><%= link_to "Registrarse", new_user_registration_path, class: "active"%></li>

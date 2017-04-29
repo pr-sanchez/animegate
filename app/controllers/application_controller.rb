@@ -7,6 +7,21 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
+  #plugin protection
+  is_cancan=true
+  begin
+    Kernel.const_get('CanCan')
+  rescue
+    is_cancan=false
+  end
+  if is_cancan
+    rescue_from CanCan::AccessDenied do |exception|
+      flash[:error] = 'Access denied.'
+      redirect_to root_url
+    end
+  end
+
     protected
 
     def configure_permitted_parameters
@@ -24,5 +39,6 @@ class ApplicationController < ActionController::Base
         current_user.update_attribute(:last_seen, Time.now)
         session[:last_seen] = Time.now
       end
+
 
 end
