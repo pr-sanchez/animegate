@@ -85,6 +85,6 @@ config.assets.compress = true
 # Don't fallback to assets pipeline if a precompiled asset is missed
 config.assets.compile = false
 
-config.action_mailer.default_url_options = { :host => 'animegate.heroku.com' }
+config.action_mailer.default_url_options = { :host => 'animegate.herokuapp.com' }
 
 end
