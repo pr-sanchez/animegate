@@ -83,7 +83,19 @@ config.serve_static_assets = false
 config.assets.compress = true
 
 # Don't fallback to assets pipeline if a precompiled asset is missed
-config.assets.compile = false
 
-config.action_mailer.smtp_settings = { address: "animegate.herokuapp.com" } 
+config.assets.compile = false
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+address:              'smtp.gmail.com',
+port:                 587,
+domain:               'gmail.com',
+user_name:            'animegateoficial@gmail.com',
+password:             'animegate5',
+authentication:       :plain,
+enable_starttls_auto: true
+}
+
+  Rails.application.routes.default_url_options[:host] = 'animegate.herokuapp.com'
+  
 end
