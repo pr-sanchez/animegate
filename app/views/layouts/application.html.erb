@@ -9,6 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="letras">
+    <%= render 'layouts/flash_messages' %>
+  </div>
 
   <div class="boton-sidebar hidden-xs">
     <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
@@ -123,9 +126,6 @@
 
 
 
-  <div class="letras">
-    <%= render 'layouts/flash_messages' %>
-  </div>
 
   <!-- SCM Music Player http://scmplayer.co -->
 <div class="reproductor">
