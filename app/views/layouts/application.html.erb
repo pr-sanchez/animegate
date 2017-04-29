@@ -31,21 +31,21 @@
     <h2>Cuenta</h2>
     <div class="user-image">
       <% if current_user.try(:admin?) %>
-      <%= image_tag("rory2.png", :class => "round-image-50 img-responsive" )%>
+      <%= image_tag("animegate-admin.png", :class => "round-image-50 img-responsive" )%>
       <% end %>
 
       <% if current_user.try(:moderator?) %>
-      <%= image_tag("rory2.png", :class => "round-image-50 img-responsive" )%>
+      <%= image_tag("animegate-moderator.png", :class => "round-image-50 img-responsive" )%>
       <% end %>
 
       <% if current_user.try(:uploader?) %>
-      <%= image_tag("rory2.png", :class => "round-image-50 img-responsive" )%>
+      <%= image_tag("animegate-uploader.png", :class => "round-image-50 img-responsive" )%>
       <% end %>
 
       <% unless current_user.try(:admin?) || current_user.try(:moderator?)  || current_user.try(:uploader?)  %>
       <%= image_tag(current_user.avatar.url(:thumb), :class => "round-image-50 img-responsive" ) %>
       <%end %>
-      
+
     </div>
     <h3><%= current_user.username %></h3>
     <h4><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></h4>
