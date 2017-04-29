@@ -37,12 +37,6 @@ class Ability
 
     if user.moderator?
         can :create, Post
-        can :update, Post do |post|
-          post.user == user
-        end
-        can :destroy, Post do |post|
-          post.user == user
-        end
 
         can :create, Anime
         can :update, Anime do |anime|

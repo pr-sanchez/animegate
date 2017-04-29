@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :questions
   has_many :answers
-  has_many :posts
-
 
 
   has_attached_file :avatar,
