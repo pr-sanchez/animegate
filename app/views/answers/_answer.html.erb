@@ -1,7 +1,14 @@
+<div class="container">
 <p>
   <%= answer.user.username %>
-  <%= answer.content %>
+  <% if answer.user.role == 1  %> [Administrador]:
+  <% elsif answer.user.role == 2  %> [Moderador]:
+  <% elsif answer.user.role == 3 %> [Uploader]:
+  <% elsif answer.user.role == nil  %> [Member]:
+  <% end %>
+  <p><%= answer.content  %></p>
   <% if can? :destroy, answer%>
   <%= link_to "Borrar", question_answer_path(answer.question, answer), method: :delete %>
   <% end %>
 </p>
+</div>

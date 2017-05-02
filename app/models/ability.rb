@@ -3,7 +3,8 @@ class Ability
 
   def initialize(user)
 
-    if user.admin?
+ #user role 1 = admin, 2 = moderador, 3 = uploader, nil = member
+    if user.role == 1
 
       can :manage, :all
 
@@ -35,7 +36,7 @@ class Ability
     end
 
 
-    if user.moderator?
+    if user.role == 2
         can :create, Post
 
         can :create, Anime
@@ -49,13 +50,14 @@ class Ability
       end
 
 
-    if user.uploader?
+    if user.role == 3
         can :create, Anime
         can :update, Anime do |anime|
           anime.user == user
           end
 
       end
+
 
 
 

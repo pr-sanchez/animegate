@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2 class="text-center bienvenida_titulo">¡Bienvenido a Anime Gate!</h2>
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="text-center bienvenida_titulo slide">¿Qué es Anime Gate?<div class="bounce"><i class="fa fa-angle-down"></i></div></h3>
+            <p class="content">
+              Anime Gate es una comunidad sin fines de lucro creada para los que les gusta el anime y manga,<br>
+              nace principalmente para facilitar a las demás personas la descarga de este tipo de material y<br>
+              que permita de forma dinámica la libre opinión de cada usuario mediante un sistema de votación,<br>
+              y criticas, es decir, que cada usuario puede escribir como se sintió, que le guto, que no le gusto<br>
+              entre otras cosas al ver un anime o leer un manga, teniendo en cuenta que el fin de la página no es<br>
+              infringir los derechos de autor sino ser un medio para el intercambio de información, la página en<br>
+              si consiste en publicación de anime y manga para su libre descarga,en fin, gente que este interesada<br>
+              en ser parte de este proyecto los invito a rellenar el formulario de aplicación que esta abajo o a mandarnos<br>
+              un mensaje por la página de facebook :3 andamos buscando uploaders (personas que bajan el anime y tienen <br>
+              tiempo de subirlo a un servidor de descarga), moderadores (se encargaran de comunicarse con los usuarios,<br>
+              también pueden hacer de uploader pero pueden editar los post de otros usuarios y borrar sus propios posts),<br>
+              diseñadores (para creación de banners, textos, entre otros, cualquier aporte de diseño sirve) cualquier ayuda cuenta,  al final todo es hecho para la comunidad.
+            </p>
+          <h3 class="text-center bienvenida_titulo slide2">¿Para que?<div class="bounce"><i class="fa fa-angle-down"></i></div></h3>
+          <p class="content2">
+            Vacio por ahora papu, mira que además de programador y administrador soy generador de contenidos jooder. (le acento españolete)
+          </p>
+          <h3 class="text-center bienvenida_titulo slide3">¿Como puedo unirme a la comunidad?<div class="bounce"><i class="fa fa-angle-down"></i></div></h3>
+          <p class="content3">
+             Puedes ser miembro de la comunidad de Anime Gate Registrandote en nuestra página y siguiendonos en nuestras redes sociales:<br>
+             <a href="https://www.facebook.com/animegateoficial/"><b>Facebook</b></a> <br>
+             <a href="https://twitter.com/animegateof/ "><b>Twitter</b></a> <br>
+
+          </p>
+          <h3 class="text-center bienvenida_titulo slide4">¿Como puedo unirme al STAFF?<div class="bounce"><i class="fa fa-angle-down"></i></div></h3>
+          <p class="content4">
+            Si te interesa ser parte del staff, rellena el formulario de abajo! Con gusto lo leere y tomare en cuenta<br>
+            el rango que quieres aplicar.<br><br>
+
+            <b>Rangos disponibles:</b><br>
+            <b>Moderador:</b> Se encargaran de comunicarse con los usuarios también pueden hacer de uploader <br>
+               pero pueden editar los post de otros usuarios y borrar sus propios posts. <br>
+            <b>Uploader:</b> Personas que bajan el anime y tienen tiempo de subirlo a un servidor de descarga. <br>
+            <b>Diseñador:</b> Crean portadas, imagenes, banners, textos, entre otros, cualquier cosa relacionada con diseño<br>
+            <b>Generador de contenidos:</b> Se encarga de generar noticias, historias, videos, textos interesantes para atraer audiencia.<br>
+          </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+          <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+            <h2 class="text-center">Unirme al staff</h2>
+            </div>
+              <div class="panel-body">
+
+                <%= form_for @message, url: afiliacion_path do |message_form| %>
+
+              <div class="field form-group">
+                <%= message_form.text_field :name, placeholder: "Nombre" %>
+              </div>
+
+              <div class="field form-group">
+                <%= message_form.email_field :email, placeholder: "Correo"%>
+              </div>
+
+
+              <%= message_form.text_area :content, placeholder: "Mensaje"%>
+
+
+              <div class="actions">
+                <%= message_form.submit "Enviar", class: 'btn btn-lg btn-primary'  %>
+              </div>
+              <% end %>
+              </div>
+
+              <div class="panel-footer">
+              </div>
+          </div>
+          </div>
+
+
+    </div>
+
+
+      </div>
+    </div>
+  </div>

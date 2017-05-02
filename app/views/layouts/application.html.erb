@@ -5,13 +5,13 @@
   <%= favicon_link_tag 'favicon.gif' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Permanent+Marker|Oswald|Chewy|Kaushan+Script|Anton|Lobster|Rock+Salt' %>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Fugaz+One|Permanent+Marker|Oswald|Chewy|Kaushan+Script|Anton|Lobster|Rock+Salt' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="letras">
-    <%= render 'layouts/flash_messages' %>
-  </div>
+
+
+
 
   <div class="boton-sidebar hidden-xs">
     <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
@@ -33,19 +33,19 @@
     <div class="text-center">
     <h2>Cuenta</h2>
     <div class="user-image">
-      <% if current_user.try(:admin?) %>
+      <% if current_user.role == 1 %>
       <%= image_tag("animegate-admin.png", :class => "round-image-50 img-responsive" )%>
       <% end %>
 
-      <% if current_user.try(:moderator?) %>
+      <% if current_user.role == 2  %>
       <%= image_tag("animegate-moderator.png", :class => "round-image-50 img-responsive" )%>
       <% end %>
 
-      <% if current_user.try(:uploader?) %>
+      <% if current_user.role == 3  %>
       <%= image_tag("animegate-uploader.png", :class => "round-image-50 img-responsive" )%>
       <% end %>
 
-      <% unless current_user.try(:admin?) || current_user.try(:moderator?)  || current_user.try(:uploader?)  %>
+      <% if current_user.role == nil   %>
       <%= image_tag(current_user.avatar.url(:thumb), :class => "round-image-50 img-responsive" ) %>
       <%end %>
 
@@ -123,10 +123,6 @@
   </div>
 
 
-
-
-
-
   <!-- SCM Music Player http://scmplayer.co -->
 <div class="reproductor">
   <script type="text/javascript" src="http://scmplayer.co/script.js"
@@ -164,49 +160,21 @@
 
 
   <!-- Page content -->
+  <%= render 'layouts/header' %>
+
+  <div class="letras">
+    <%= render 'layouts/flash_messages' %>
+  </div>
 
 
-  <div class="vacio-por-ahora-contenedor-de-todo">
-    <div class="contenedor-slides2">
-    <div class="container">
-    <div class="contenedor-slides">
-<!--
-      <div class="container-fluid">
-        <div class="hidden-xs">
-          <div class="main">
-            <div class="slides">
-              <div>
-                <%= image_tag "/assets/anime/slideshow/portada2.jpg", class: "img-responsive" %>
-              </div>
-              <div>
-                <%= image_tag "/assets/anime/slideshow/portada.jpg", class: "img-responsive" %>
-              </div>
-              <div>
-                <%= image_tag "/assets/anime/slideshow/3.jpg", class: "img-responsive" %>
-              </div>
-              <div>
-                <%= image_tag "/assets/anime/slideshow/1.jpg", class: "img-responsive" %>
-              </div>
-              <div>
-                <%= image_tag "/assets/anime/slideshow/4.jpg", class: "img-responsive" %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>-->
-    </div>
-    </div>
-    </div>
+<div class="container portada">
+  <%= image_tag "portada4.jpg", :class => "img-responsive" %>
+</div>
 
 
-    <div class="contenedor-slides2">
-      <div class="container">
-      <%= render 'layouts/header' %>
-      </div>
-    </div>
 
 
-      <div class="container contenedor-todo">
+      <div class="container contenedor">
     	  <%= yield %>
       </div>
 

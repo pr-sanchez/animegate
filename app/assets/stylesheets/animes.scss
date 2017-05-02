@@ -2,20 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/* algun dia te habilitare de nuevo viejo amigo
 .show-anime-body{
-  font-family: 'Oswald', helvetica, arial, sans-serif;
   position:fixed;;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-}
+}*/
 
 .show-anime{
-  /*border: 3px #446CB3 solid;*/
+  border: 3px #446CB3 solid;
+  background: #fff;
   position: relative;
-  margin-top:-200px;
-  z-index: 89;
+  z-index: 7;
 }
 
 

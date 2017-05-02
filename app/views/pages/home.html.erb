@@ -1,59 +1,61 @@
-<!--
-<div class="portada">
-  <div class="container">
-    <%= image_tag "/assets/anime/fondos/portada.png", :class => "img-responsive" %>
-  </div>
-</div>
+<div class="container">
+  <div class="row">
 
--->
-<div class="container-fluid-full">
-
-<div class="row">
-  <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-    <div class="panel panel-default">
-      <div class="panel-header">
-        <h1 class="title-anime text-center">Anime Recientes</h1>.
-        <h3>La página sigue en construcción, te vas a enojar papu?</h3>
-      </div>
-      <div class="panel-body">
-        <div class="body">
-          <div class="">
-
-              <% @animes.each do |anime| %>
-
-        <hr>
-              <div class="container">
-                <div class="row">
-                <div class="col-lg-6">
-                <p class="titulo_anime_home"><strong>Anime: <%= link_to anime.title, anime%> [<%= link_to anime.resolution, anime%>]</strong></p>
-                <p class="date_anime_home"><strong>Fecha: <%= link_to anime.anime_date_home, anime%></strong></p>
-                <p class="description_anime_home"><strong><%= link_to anime.description, anime%></strong></p>
-              </div>
-                <div class="col-lg-6">
-                  <figure class="imghvr-blur img_home"><div <%= link_to (image_tag anime.image.url(:medium), class: 'img-responsive'), anime %> </div>
-                    <figcaption>
-                      <p class="text-center titulo_anime_home-figure"><strong><%= link_to anime.short_title, anime%></strong></p>
-                      <p class="text-center uploader_anime_home-figure"><strong><%= link_to anime.uploader, anime%></strong></p>
-                      <p class="text-center episodes_anime_home-figure"><strong><%= link_to anime.anime_episodes, anime%></strong></p>
-                    </figcaption>
-                    </figure>
-                </div>
-
-              </div>
-
-              </div>
-
-
-
-              <% end %>
-
-
-
-          </div>
-          <%= will_paginate @animes, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>
-        </div>
-
-        </div>
+  <!--<div class="row">
+    <div class="col-lg-11">
+    </div>
+    <div class="col-lg-1">
+      <div class="bienvenida">
+        <%= image_tag "rory.png", :class => "img-responsive" %>
       </div>
     </div>
+  </div>-->
+
+  <div class="container">
+      <div class="jumbotron">
+
+
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                  <h1 class="title-anime text-center">Anime Recientes</h1>.
+                  <h3>La página sigue en construcción.</h3>
+
+                        <% @animes.each do |anime| %>
+
+                  <hr>
+                        <div class="container">
+                          <div class="row">
+                          <div class="col-lg-6">
+                          <p class="titulo_anime_home"><strong>Anime: <%= link_to anime.title, anime%> [<%= link_to anime.resolution, anime%>]</strong></p>
+                          <p class="date_anime_home"><strong>Fecha: <%= link_to anime.anime_date_home, anime%></strong></p>
+                          <p class="description_anime_home"><strong><%= link_to anime.description, anime%></strong></p>
+                        </div>
+                          <div class="col-lg-6">
+                            <figure class="imghvr-blur img_home"><div <%= link_to (image_tag anime.image.url(:medium), class: 'img-responsive'), anime %> </div>
+                              <figcaption>
+                                <p class="text-center titulo_anime_home-figure"><strong><%= link_to anime.short_title, anime%></strong></p>
+                                <p class="text-center uploader_anime_home-figure"><strong><%= link_to anime.uploader, anime%></strong></p>
+                                <p class="text-center episodes_anime_home-figure"><strong><%= link_to anime.anime_episodes, anime%></strong></p>
+                              </figcaption>
+                              </figure>
+                          </div>
+
+                        </div>
+
+                        </div>
+
+
+
+                        <% end %>
+
+
+
+                    <%= will_paginate @animes, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outer_window:  0%>
+
+              </div>
+            </div>
+
+        </div>
+    </div>
   </div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429204954) do
+ActiveRecord::Schema.define(version: 20170502141713) do
 
   create_table "animes", force: :cascade do |t|
     t.string   "title"
@@ -67,6 +67,11 @@ ActiveRecord::Schema.define(version: 20170429204954) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
 
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -117,11 +122,7 @@ ActiveRecord::Schema.define(version: 20170429204954) do
     t.datetime "last_seen"
     t.boolean  "moderator"
     t.boolean  "uploader"
+    t.integer  "role"
   end
-
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

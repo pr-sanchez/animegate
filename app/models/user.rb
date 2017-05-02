@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :answers
 
 
+
   has_attached_file :avatar,
   :default_url => "missingag.png",
   :styles => { :large =>"500x500>", :medium => "300x300>", :thumb => "50x50>" }

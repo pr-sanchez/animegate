@@ -69,9 +69,9 @@ body {
 	padding:13.5px 20px;
 	float:right;
 }
-
+/*
 .contenedor-slides{
-	background: url(/assets/anime/slideshow/portada2.jpg);
+	background: url(/assets/anime/slideshow/portada2.jpg); /*portada atras del menu
   background-position: center center;
 	background-repeat: no-repeat;
   background-attachment: fixed;
@@ -80,32 +80,32 @@ body {
 	padding-top: 200px;
 	background-size: 100%;
 	padding-bottom: 140px;
-}
+}/*
 .contenedor-slides2{
-	background: url(/assets/portada.jpg);
+	background: #6C7A89/*url(/assets/portada.jpg);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position:0 0px;
 	background-size:cover;
-}
+}*/
 
 .contenedor-todo{
 	margin-top: 10px;
 }
-
+/*
 .contenedor-menu{
 	background: url(/assets/anime/slideshow/portada2.jpg);
   background-position: center center;
 	background-repeat: no-repeat;
   background-attachment: fixed;
   background-position:0 0px;
-  /*background-size:cover;*/
+  /*background-size:cover;
 	background-size: 100%;
 	padding-bottom: 30px;
 }
 
-
+*/
 
 @media screen and (max-width: 780px) {
 	.contenedor-menu{
@@ -153,12 +153,4 @@ body {
 		width:auto;
 		height: 390px;
 	}
-}
-
-
-
-
-
-.boton-sidebar{
-	position: fixed;
 }

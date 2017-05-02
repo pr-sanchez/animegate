@@ -17,7 +17,25 @@
         <h3>Post#: <%= question.id %> </h3>
         <h3>Asunto: <%= question.title %> </h3>
         <p><b>Descripción:</b> <%= question.content %> </p>
-        <%= time_ago_in_words(question.created_at) %> ago por <%= question.user.username %><br>
+        <%= time_ago_in_words(question.created_at) %> ago por <%= question.user.username %>
+        <%if question.user.role == 1 %>
+            <h3> Administrador </h3>
+            <%= image_tag("animegate-admin.png", :class => "round-image-50 img-responsive" )%>
+        <% end %>
+        <%if question.user.role == 2 %>
+            <h3> Moderador </h3>
+            <%= image_tag("animegate-moderador.png", :class => "round-image-50 img-responsive" )%>
+        <% end %>
+        <%if question.user.role == 3 %>
+            <h3> Uploader </h3>
+            <%= image_tag("animegate-uploader.png", :class => "round-image-50 img-responsive" )%>
+        <% end %>
+        <%if question.user.role == nil %>
+            <h3> Member </h3>
+            <%= image_tag("animegate-member.png", :class => "round-image-50 img-responsive" )%>
+        <% end %>
+
+          <br>
 
         <% if can? :show, question%>
         <%= link_to 'Ver', question %>|
@@ -31,17 +49,16 @@
         <%= button_to 'Borrar', question, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end%>
 
-        <% if question.answers.any? %>
-
-        <h4> Respuestas </h4>
-
-        <%= render question.answers %>
-        <% end %>
-
+        <p class="panel panel-default">
+          <% if question.answers.any? %>
+            <h4> Respuestas </h4>
+            <%= render question.answers %>
+          <% end %>
+       </p>
         <hr>
         <p> Responder </p>
         <%= form_for([question, question.answers.build]) do |f| %>
-        <%= f.text_area :content %><br>
+        <%= f.text_area :content, :id => "message_area" %><br>
         <%= submit_tag "Enviar" %>
         <% end %>
 
