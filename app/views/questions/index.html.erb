@@ -30,7 +30,7 @@
             <h3> Uploader </h3>
             <%= image_tag("animegate-uploader.png", :class => "round-image-50 img-responsive" )%>
         <% end %>
-        <%if question.user.admin == false || question.user.moderator == false || question.user.uploader == false %>
+        <%unless question.user.admin == true || question.user.moderator == true || question.user.uploader == true %>
             <h3> Member </h3>
             <%= image_tag("animegate-member.png", :class => "round-image-50 img-responsive" )%>
         <% end %>
