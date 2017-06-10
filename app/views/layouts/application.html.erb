@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Anime Gate</title>
+  <%= title(page_title: :page_keyword,
+            separator: '-',
+            brand: 'Anime Gate',
+            reverse: false) %>
+  <meta name="description" content="<%= yield(:description) %>" />
+  <meta name="keywords" content="<%= yield(:keywords) %>" />
   <%= favicon_link_tag 'favicon.gif' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -33,20 +38,20 @@
     <div class="text-center">
     <h2>Cuenta</h2>
     <div class="user-image">
-      <% if current_user.role == 1 %>
+      <% if current_user.try(:admin?) %>
       <%= image_tag("animegate-admin.png", :class => "round-image-50 img-responsive" )%>
       <% end %>
 
-      <% if current_user.role == 2  %>
-      <%= image_tag("animegate-moderator.png", :class => "round-image-50 img-responsive" )%>
+      <% if current_user.try(:moderator?)  %>
+      <%= image_tag("animegate-moderador.png", :class => "round-image-50 img-responsive" )%>
       <% end %>
 
-      <% if current_user.role == 3  %>
+      <% if current_user.try(:uploader?)  %>
       <%= image_tag("animegate-uploader.png", :class => "round-image-50 img-responsive" )%>
       <% end %>
 
-      <% if current_user.role == nil   %>
-      <%= image_tag(current_user.avatar.url(:thumb), :class => "round-image-50 img-responsive" ) %>
+      <% unless current_user.try(:admin?) || current_user.try(:moderator?) || current_user.try(:uploader?)  %>
+      <%= image_tag("animegate-member.png", :class => "round-image-50 img-responsive" )%>
       <%end %>
 
     </div>

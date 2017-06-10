@@ -1,6 +1,6 @@
 <div class="container">
 
-<% if current_user.try(:admin?) %>
+<% if current_user.try(:admin?) || current_user.try(:moderator?) %>
   <div id="main_content">
     <div id="header">
       <h1 class="titulo-noticias-editar text-center">Editar</h1>

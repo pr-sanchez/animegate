@@ -30,7 +30,8 @@ gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem "non-stupid-digest-assets"
 gem 'cancan', '~> 1.6', '>= 1.6.10'
 gem "font-awesome-rails"
-
+gem 'meta-rails', '~> 0.1.1'
+gem 'haml', '~> 4.0'
 
 group :production do
 	gem 'pg'

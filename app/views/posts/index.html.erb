@@ -2,11 +2,11 @@
 	<div id="main_content">
 	  <div id="header">
 	    <h2 class="titulos text-center">Noticias</h2>
-	<% if current_user.try(:admin?) || current_user.try(:moderator?) %>
+			<% if current_user.try(:admin?) || current_user.try(:moderator?) %>
 	    <div class="buttons">
 	    	<%= link_to "Nueva noticia", new_post_path, class: "btn btn-default"%>
 	    </div>
-	    <% end %>
+			<% end %>
 	  </div>
 	  <% flash.each do |name, msg|%>
 	  <%= content_tag(:div, msg, class: "alert") %>

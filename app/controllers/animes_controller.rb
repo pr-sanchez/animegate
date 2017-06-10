@@ -25,6 +25,7 @@ class AnimesController < ApplicationController
 
   def new
     @anime = current_user.animes.build
+    authorize! :create, @anime
   end
 
   def edit

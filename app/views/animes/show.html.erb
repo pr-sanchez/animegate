@@ -53,9 +53,10 @@
                      <% end %>
                    </div>
                </article>
+               <article align="center"><br>
 
-                <% if current_user.role == 1 || current_user.role == 2 || current_user.role == 3  %>
-               <article>
+               <% if current_user.try(:admin?) || current_user.try(:moderator?) || current_user.try(:uploader?) %>
+
                  <h2 class="titulo">Configuración:</h2>
 
                      <%= link_to 'Atras', animes_path, class: "btn btn-info" %> |

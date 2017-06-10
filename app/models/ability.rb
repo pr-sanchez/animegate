@@ -4,41 +4,11 @@ class Ability
   def initialize(user)
 
  #user role 1 = admin, 2 = moderador, 3 = uploader, nil = member
-    if user.role == 1
-
+    if user.admin?
       can :manage, :all
 
-    else
-
-      can :update, Question do |question|
-        question.user == user
-      end
-
-      can :destroy, Question do |question|
-        question.user == user
-      end
-
-      can :show, Answer do |answer|
-        answer.user == user
-      end
-
-      can :update, Answer do |answer|
-        answer.user == user
-      end
-
-      can :destroy, Answer do |answer|
-        answer.user == user
-      end
-
-      can :create, Question  #first can, luego action, luego modelo
-      can :create, Answer
-
-    end
-
-
-    if user.role == 2
+    elsif user.moderator?
         can :create, Post
-
         can :create, Anime
         can :update, Anime do |anime|
           anime.user == user
@@ -47,16 +17,41 @@ class Ability
           anime.user == user
         end
 
-      end
 
 
-    if user.role == 3
+
+      elsif user.uploader?
         can :create, Anime
         can :update, Anime do |anime|
           anime.user == user
           end
 
+
+
+
+    else
+
+      can :create, Question  #first can, luego action, luego modelo
+      can :update, Question do |question|
+        question.user == user
       end
+      can :destroy, Question do |question|
+        question.user == user
+      end
+
+      can :create, Answer
+      can :show, Answer do |answer|
+        answer.user == user
+      end
+      can :update, Answer do |answer|
+        answer.user == user
+      end
+      can :destroy, Answer do |answer|
+        answer.user == user
+      end
+
+
+    end
 
 
 

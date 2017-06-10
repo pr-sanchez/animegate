@@ -1,9 +1,9 @@
+
 <div class="container">
   <div id="main_content">
     <div id="header">
       <h2 class="text-center titulo-noticias">Noticias</h2>
-      <% if current_user.try(:admin?) %>
-      <% end %>
+
     </div>
     <% flash.each do |name, msg|%>
     <%= content_tag(:div, msg, class: "alert") %>

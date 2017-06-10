@@ -18,19 +18,19 @@
         <h3>Asunto: <%= question.title %> </h3>
         <p><b>Descripción:</b> <%= question.content %> </p>
         <%= time_ago_in_words(question.created_at) %> ago por <%= question.user.username %>
-        <%if question.user.role == 1 %>
+        <%if question.user.admin == true %>
             <h3> Administrador </h3>
             <%= image_tag("animegate-admin.png", :class => "round-image-50 img-responsive" )%>
         <% end %>
-        <%if question.user.role == 2 %>
+        <%if question.user.moderator == true %>
             <h3> Moderador </h3>
             <%= image_tag("animegate-moderador.png", :class => "round-image-50 img-responsive" )%>
         <% end %>
-        <%if question.user.role == 3 %>
+        <%if question.user.uploader == true %>
             <h3> Uploader </h3>
             <%= image_tag("animegate-uploader.png", :class => "round-image-50 img-responsive" )%>
         <% end %>
-        <%if question.user.role == nil %>
+        <%if question.user.admin == false || question.user.moderator == false || question.user.uploader == false %>
             <h3> Member </h3>
             <%= image_tag("animegate-member.png", :class => "round-image-50 img-responsive" )%>
         <% end %>

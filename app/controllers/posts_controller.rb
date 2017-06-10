@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new
+		authorize! :create, @post
 	end
 
 	def create
@@ -25,6 +26,7 @@ class PostsController < ApplicationController
 
 	def edit
 		@post = Post.find(params[:id])
+		authorize! :update, @post
 	end
 
 	def update
@@ -45,6 +47,6 @@ class PostsController < ApplicationController
 	private
 	def post_params
 		params.require(:post).permit(:title, :body)
-
 	end
+
 end
